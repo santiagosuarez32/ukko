@@ -1,65 +1,98 @@
-import Image from "next/image";
+"use client";
+
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+// Components
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import BusinessUnits from "@/components/BusinessUnits";
+import AboutUs from "@/components/AboutUs";
+import Footer from "@/components/Footer";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+  const container = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      // Hero Entrance Animation
+      const tl = gsap.timeline();
+      
+      tl.from(".hero-subheadline", {
+        y: -10,
+        opacity: 0,
+        duration: 0.5,
+        ease: "power2.out",
+      })
+      .from(".reveal-char", {
+        y: 40,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.015,
+        ease: "power3.out",
+      }, "-=0.3")
+      .from(".hero-text", {
+        y: 15,
+        opacity: 0,
+        duration: 0.5,
+        ease: "power2.out",
+      }, "-=0.4")
+      .from(".hero-ctas", {
+        y: 15,
+        opacity: 0,
+        duration: 0.5,
+        ease: "power2.out",
+      }, "-=0.3")
+      .from(".hero-stats", {
+        opacity: 0,
+        duration: 0.6,
+        ease: "none",
+        onStart: () => {
+          // Start counters earlier
+          const counters = [
+            { id: 'counter-years', end: 20 },
+            { id: 'counter-business', end: 6 }
+          ];
+
+          counters.forEach(c => {
+            const el = document.getElementById(c.id);
+            if (el) {
+              gsap.to({ val: 0 }, {
+                val: c.end,
+                duration: 1.2,
+                ease: "power2.out",
+                onUpdate: function() {
+                  el.innerText = Math.floor(this.targets()[0].val).toString();
+                }
+              });
+            }
+          });
+        }
+      }, "-=0.2")
+      .from(".stat-item", {
+        y: 15,
+        opacity: 0,
+        duration: 0.4,
+        stagger: 0.08,
+        ease: "power2.out",
+      }, "-=0.4");
+
+      // About Us Animations handled by components internally
+    },
+    { scope: container }
+  );
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div ref={container} className="bg-white text-carbon min-h-screen selection:bg-ukko-blue/20">
+      <Navbar />
+      <Hero title="Impulsando el Futuro Energético" />
+      <AboutUs />
+      <BusinessUnits />
+      <Footer />
     </div>
   );
 }
