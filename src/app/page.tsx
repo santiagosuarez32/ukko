@@ -10,6 +10,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import BusinessUnits from "@/components/BusinessUnits";
 import AboutUs from "@/components/AboutUs";
+import Methodology from "@/components/Methodology";
 import Footer from "@/components/Footer";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -92,6 +93,7 @@ export default function Home() {
       <Hero title="Impulsando el Futuro Energético" />
       <AboutUs />
       <BusinessUnits />
+      <Methodology />
       <Footer />
     </div>
   );

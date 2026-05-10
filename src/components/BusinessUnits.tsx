@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
+import { AnimatedText } from "@/components/ui/AnimatedText";
 
 const businessUnits = [
   {
@@ -46,9 +47,10 @@ const businessUnits = [
 export default function BusinessUnits() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-10% 0px" });
+  const [triggerUnderline, setTriggerUnderline] = useState(false);
 
   return (
-    <section ref={sectionRef} id="business-units" className="py-32 px-6 bg-white text-carbon overflow-hidden relative">
+    <section ref={sectionRef} id="business-units" className="pt-4 pb-32 px-6 bg-white text-carbon overflow-hidden relative">
       {/* Decorative background element */}
       <div className="absolute top-0 right-0 w-full h-full opacity-[0.03] pointer-events-none overflow-hidden">
         <div className="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-aquamarine blur-[120px]" />
@@ -62,16 +64,43 @@ export default function BusinessUnits() {
             Unidades de Negocio
           </span>
           
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-semibold mb-8 tracking-tight leading-[1.1] gradient-text pb-4">
+          <h2 className="text-3xl md:text-5xl lg:text-[56px] font-semibold mb-8 tracking-tight leading-[1.1] text-carbon flex flex-wrap items-baseline gap-x-4 lg:gap-x-6">
             <VerticalCutReveal
               splitBy="characters"
-              staggerDuration={0.015}
-              containerClassName="gradient-text"
-              elementLevelClassName="gradient-text"
-              transition={{ type: "spring", stiffness: 200, damping: 20 }}
+              staggerDuration={0.012}
+              staggerFrom="first"
+              transition={{
+                type: "spring",
+                stiffness: 250,
+                damping: 25,
+              }}
             >
-              Soluciones de extremo a extremo
+              {`Soluciones`}
             </VerticalCutReveal>
+            
+            <AnimatedText 
+              trigger={triggerUnderline}
+              underlineClassName="text-emerald/60"
+              underlineDuration={1.2}
+              className="inline-flex translate-y-[2px]"
+            >
+              <VerticalCutReveal
+                splitBy="characters"
+                staggerDuration={0.015}
+                staggerFrom="first"
+                onComplete={() => setTriggerUnderline(true)}
+                elementLevelClassName="gradient-text"
+                containerClassName="gradient-text"
+                transition={{
+                  type: "spring",
+                  stiffness: 250,
+                  damping: 21,
+                  delay: 0.3
+                }}
+              >
+                {`de extremo a extremo`}
+              </VerticalCutReveal>
+            </AnimatedText>
           </h2>
 
           <motion.p 
@@ -107,7 +136,7 @@ export default function BusinessUnits() {
                     {unit.title}
                   </h3>
                 
-                <p className="text-carbon/60 text-[15px] leading-relaxed mb-10 font-medium tracking-tight">
+                <p className="text-carbon/60 text-[15px] leading-relaxed font-medium tracking-tight mb-8">
                   {unit.description}
                 </p>
 
@@ -116,7 +145,7 @@ export default function BusinessUnits() {
                   {unit.tags.map((tag) => (
                     <span 
                       key={tag}
-                      className="text-[11px] font-bold tracking-wider px-4 py-2 rounded-full border border-carbon/10 bg-carbon/[0.02] text-carbon/50 transition-all duration-300"
+                      className="text-[11px] font-normal tracking-[-0.02em] text-ukko-blue border border-ukko-blue/30 px-3 py-1 rounded-full bg-ukko-blue/5"
                     >
                       {tag}
                     </span>
