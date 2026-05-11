@@ -22,7 +22,7 @@ export default function CTA({ className }: { className?: string }) {
             <h2 className="text-4xl md:text-5xl lg:text-[56px] font-semibold text-carbon leading-[1.1] tracking-tight">
               <VerticalCutReveal
                 splitBy="characters"
-                staggerDuration={0.012}
+                staggerDuration={0.008}
                 staggerFrom="first"
                 transition={{ type: "spring", stiffness: 250, damping: 25 }}
               >
@@ -31,20 +31,20 @@ export default function CTA({ className }: { className?: string }) {
               <div className="flex flex-wrap items-baseline gap-x-2.5 -mt-1">
                 <VerticalCutReveal
                   splitBy="characters"
-                  staggerDuration={0.015}
+                  staggerDuration={0.01}
                   staggerFrom="first"
-                  transition={{ type: "spring", stiffness: 250, damping: 25, delay: 0.2 }}
+                  transition={{ type: "spring", stiffness: 250, damping: 25, delay: 0.1 }}
                 >
                   {`futuro de su`}
                 </VerticalCutReveal>
                 
                 <VerticalCutReveal
                   splitBy="characters"
-                  staggerDuration={0.015}
+                  staggerDuration={0.01}
                   staggerFrom="first"
                   elementLevelClassName="gradient-text"
                   containerClassName="gradient-text"
-                  transition={{ type: "spring", stiffness: 250, damping: 21, delay: 0.4 }}
+                  transition={{ type: "spring", stiffness: 250, damping: 21, delay: 0.25 }}
                 >
                   {`empresa`}
                 </VerticalCutReveal>
@@ -63,7 +63,7 @@ export default function CTA({ className }: { className?: string }) {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           className="relative h-[450px] md:h-[550px] rounded-[48px] shadow-2xl overflow-hidden flex items-center justify-end p-8 md:p-14"
         >
           {/* Background Image Container */}

@@ -53,7 +53,7 @@ export default function SobreNosotros() {
             <h1 className="text-[32px] md:text-6xl lg:text-[72px] font-semibold text-carbon tracking-tight leading-[1.1] flex flex-wrap justify-start gap-x-2 md:gap-x-4">
               <VerticalCutReveal
                 splitBy="characters"
-                staggerDuration={0.012}
+                staggerDuration={0.008}
                 staggerFrom="first"
                 transition={{ type: "spring", stiffness: 250, damping: 25 }}
               >
@@ -62,11 +62,11 @@ export default function SobreNosotros() {
               
               <VerticalCutReveal
                 splitBy="characters"
-                staggerDuration={0.015}
+                staggerDuration={0.01}
                 staggerFrom="first"
                 elementLevelClassName="gradient-text"
                 containerClassName="gradient-text"
-                transition={{ type: "spring", stiffness: 250, damping: 21, delay: 0.3 }}
+                transition={{ type: "spring", stiffness: 250, damping: 21, delay: 0.2 }}
               >
                 {`un mañana sostenible`}
               </VerticalCutReveal>

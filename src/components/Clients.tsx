@@ -36,7 +36,7 @@ export default function Clients() {
             <h2 className="text-3xl md:text-4xl lg:text-[48px] font-semibold mb-8 tracking-tight leading-[1.15] text-carbon flex flex-col items-center">
               <VerticalCutReveal
                 splitBy="characters"
-                staggerDuration={0.012}
+                staggerDuration={0.008}
                 staggerFrom="first"
                 transition={{ type: "spring", stiffness: 250, damping: 25 }}
               >
@@ -52,12 +52,12 @@ export default function Clients() {
                 >
                   <VerticalCutReveal
                     splitBy="characters"
-                    staggerDuration={0.015}
+                    staggerDuration={0.01}
                     staggerFrom="first"
                     onComplete={() => setTriggerUnderline(true)}
                     elementLevelClassName="gradient-text"
                     containerClassName="gradient-text"
-                    transition={{ type: "spring", stiffness: 250, damping: 21, delay: 0.3 }}
+                    transition={{ type: "spring", stiffness: 250, damping: 21, delay: 0.15 }}
                   >
                     {`nuestros servicios`}
                   </VerticalCutReveal>
@@ -72,7 +72,7 @@ export default function Clients() {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+        transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
         className="relative flex overflow-hidden w-full max-w-[1400px] mx-auto px-4 md:px-12"
       >
         {/* Gradient overlays for smooth fading at edges */}

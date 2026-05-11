@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useRef, useState } from "react";
 import { AnimatedText } from "@/components/ui/AnimatedText";
 import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
@@ -58,7 +59,7 @@ export default function AboutUs() {
           containerClassName="w-full h-full"
           className="object-contain object-right-top"
           unoptimized
-          delay={0.4}
+          delay={0.2}
         />
       </div>
 
@@ -73,7 +74,7 @@ export default function AboutUs() {
               <h2 className="text-3xl md:text-4xl lg:text-[48px] font-semibold text-carbon leading-[1.15] tracking-tight">
                 <VerticalCutReveal
                   splitBy="characters"
-                  staggerDuration={0.012}
+                  staggerDuration={0.008}
                   staggerFrom="first"
                   transition={{
                     type: "spring",
@@ -86,13 +87,13 @@ export default function AboutUs() {
                 <div className="flex flex-wrap items-baseline gap-x-2.5 -mt-1">
                   <VerticalCutReveal
                     splitBy="characters"
-                    staggerDuration={0.015}
+                    staggerDuration={0.01}
                     staggerFrom="first"
                     transition={{
                       type: "spring",
                       stiffness: 250,
                       damping: 25,
-                      delay: 0.2
+                      delay: 0.1
                     }}
                   >
                     {`para crear`}
@@ -106,7 +107,7 @@ export default function AboutUs() {
                   >
                     <VerticalCutReveal
                       splitBy="characters"
-                      staggerDuration={0.015}
+                      staggerDuration={0.01}
                       staggerFrom="first"
                       onComplete={() => setTriggerUnderline(true)}
                       elementLevelClassName="gradient-text"
@@ -115,7 +116,7 @@ export default function AboutUs() {
                         type: "spring",
                         stiffness: 250,
                         damping: 21,
-                        delay: 0.4
+                        delay: 0.25
                       }}
                     >
                       {`valor sostenible`}
@@ -134,7 +135,7 @@ export default function AboutUs() {
                   type: "spring",
                   stiffness: 250,
                   damping: 25,
-                  delay: 0.3
+                  delay: 0.2
                 }}
               >
                 {`Somos una compañía ágil con profesionales y expertos destacados. Aplicamos el conocimiento y la experiencia para crear sinergia en los proyectos, logrando junto a socios estratégicos materializar soluciones confiables e innovadoras.`}
@@ -150,7 +151,7 @@ export default function AboutUs() {
               key={idx} 
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 0.1 * idx + 0.5 }}
+              transition={{ duration: 0.4, delay: 0.08 * idx + 0.3 }}
               style={{ 
                 background: `linear-gradient(to top, rgba(${card.rgb}, 0.15) 0%, rgba(255, 255, 255, 0) 70%)`,
                 maskImage: 'linear-gradient(to bottom, black 0%, black 70%, rgba(0,0,0,0.6) 85%, transparent 100%)',
@@ -197,7 +198,7 @@ export default function AboutUs() {
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
             className="relative h-[450px] md:h-[500px] rounded-[40px] shadow-2xl border border-white-gray/10 overflow-hidden flex items-center justify-end p-8 md:p-14"
           >
             {/* Background Image Container */}
@@ -231,9 +232,12 @@ export default function AboutUs() {
                     Agendar Reunión
                   </button>
                   
-                  <button className="w-full py-3 rounded-xl border border-white/30 bg-white/5 text-white font-semibold text-xs hover:bg-white/10 transition-all">
+                  <Link 
+                    href="/sobre-nosotros"
+                    className="w-full py-3 rounded-xl border border-white/30 bg-white/5 text-white font-semibold text-xs hover:bg-white/10 transition-all text-center"
+                  >
                     Saber más
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

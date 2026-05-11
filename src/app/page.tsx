@@ -34,22 +34,22 @@ export default function Home() {
       .from(".reveal-char", {
         y: 40,
         opacity: 0,
-        duration: 0.5,
-        stagger: 0.015,
+        duration: 0.4,
+        stagger: 0.008,
         ease: "power3.out",
       }, "-=0.3")
       .from(".hero-text", {
         y: 15,
         opacity: 0,
-        duration: 0.5,
+        duration: 0.4,
         ease: "power2.out",
-      }, "-=0.4")
+      }, "-=0.3")
       .from(".hero-ctas", {
         y: 15,
         opacity: 0,
-        duration: 0.5,
+        duration: 0.4,
         ease: "power2.out",
-      }, "-=0.3")
+      }, "-=0.25")
       .from(".hero-stats", {
         opacity: 0,
         duration: 0.6,
@@ -79,10 +79,10 @@ export default function Home() {
       .from(".stat-item", {
         y: 15,
         opacity: 0,
-        duration: 0.4,
-        stagger: 0.08,
+        duration: 0.3,
+        stagger: 0.05,
         ease: "power2.out",
-      }, "-=0.4");
+      }, "-=0.3");
 
       // About Us Animations handled by components internally
     },
