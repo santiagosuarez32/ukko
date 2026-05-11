@@ -457,7 +457,12 @@ export default function Methodology() {
                     </div>
                   ) : (
                     <>
-                      <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-${unit.alcances.length} gap-6 relative z-10`}>
+                      <div className={`grid grid-cols-1 sm:grid-cols-2 ${
+                        unit.alcances.length === 5 ? "md:grid-cols-5" : 
+                        unit.alcances.length === 6 ? "md:grid-cols-6" : 
+                        unit.alcances.length === 4 ? "md:grid-cols-4" :
+                        "md:grid-cols-3"
+                      } gap-4 relative z-10`}>
                       {unit.alcances.map((alcance: any, idx) => {
                         const colors = [
                           "bg-[#325A77]", // Navy Blue
@@ -470,14 +475,14 @@ export default function Methodology() {
                           <motion.div 
                             key={idx}
                             whileHover={{ y: -10 }}
-                            className={`${colors[idx % colors.length]} rounded-t-full px-4 pt-12 pb-10 flex flex-col items-center text-center shadow-xl hover:shadow-2xl transition-all duration-300 min-h-[350px] justify-between relative`}
+                            className={`${colors[idx % colors.length]} rounded-t-full px-4 pt-10 pb-8 flex flex-col items-center text-center shadow-xl hover:shadow-2xl transition-all duration-300 min-h-[300px] justify-between relative`}
                           >
                             {alcance.stage && (
                               <div className="absolute top-4 left-1/2 -translate-x-1/2 text-[9px] font-black tracking-widest text-white/40 uppercase">
                                 {alcance.stage}
                               </div>
                             )}
-                            <div className="relative w-14 h-14 mb-4">
+                            <div className="relative w-12 h-12 mb-3">
                               <Image 
                                 src="/logo-u.png" 
                                 alt="Logo U" 
@@ -486,7 +491,7 @@ export default function Methodology() {
                               />
                             </div>
                             <h5 className="text-sm font-bold text-white leading-tight px-2">{alcance.title}</h5>
-                            <div className="h-1 w-8 bg-white/20 my-4" />
+                             <div className="h-1 w-8 bg-white/20 my-3" />
                             <p 
                               className="text-xs text-white/80 leading-relaxed px-4"
                               dangerouslySetInnerHTML={{ 
@@ -635,7 +640,7 @@ export default function Methodology() {
 
                     {/* Full-width Image Card for Unit 01 (Standalone) */}
                     {unit.id === "01" && (
-                      <div className="relative h-[300px] w-screen left-1/2 -translate-x-1/2 overflow-hidden -mt-20 z-0 [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent),linear-gradient(to_right,transparent,black_30%,black_70%,transparent)] [mask-composite:intersect] opacity-60">
+                      <div className="relative h-[300px] w-screen left-1/2 -translate-x-1/2 overflow-hidden z-0 [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent),linear-gradient(to_right,transparent,black_30%,black_70%,transparent)] [mask-composite:intersect] opacity-60">
                         <Image 
                           src={unit.bgImage || ""} 
                           alt={unit.title}
