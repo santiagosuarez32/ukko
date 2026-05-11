@@ -150,7 +150,7 @@ export default function Methodology() {
                     >
                       <div className="relative w-16 h-16 mb-6">
                         <Image 
-                          src="/logo.png" 
+                          src="/logo-u.png" 
                           alt="Logo U" 
                           fill 
                           className="object-contain brightness-0 invert opacity-90"
