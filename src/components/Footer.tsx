@@ -20,28 +20,37 @@ export default function Footer() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-12 text-base">
             <div className="flex flex-col gap-4">
-               <div className="font-bold text-teal mb-2">Empresa</div>
-               <a href="#" className="text-white/60 hover:text-white transition-colors font-medium">Nosotros</a>
-               <a href="#" className="text-white/60 hover:text-white transition-colors font-medium">Carreras</a>
-               <a href="#" className="text-white/60 hover:text-white transition-colors font-medium">Impacto</a>
+               <div className="font-bold text-emerald mb-2 uppercase text-xs tracking-widest">Navegación</div>
+               <a href="#about-us" className="text-white/60 hover:text-white transition-colors font-medium">Nosotros</a>
+               <a href="#unidades" className="text-white/60 hover:text-white transition-colors font-medium">Unidades de Negocio</a>
+               <a href="#metodologia" className="text-white/60 hover:text-white transition-colors font-medium">Metodología</a>
+               <a href="#clientes" className="text-white/60 hover:text-white transition-colors font-medium">Clientes</a>
             </div>
             <div className="flex flex-col gap-4">
-               <div className="font-bold text-teal mb-2">Recursos</div>
-               <a href="#" className="text-white/60 hover:text-white transition-colors font-medium">Documentación Técnica</a>
-               <a href="#" className="text-white/60 hover:text-white transition-colors font-medium">Libros Blancos</a>
-               <a href="#" className="text-white/60 hover:text-white transition-colors font-medium">Noticias</a>
+               <div className="font-bold text-emerald mb-2 uppercase text-xs tracking-widest">Contacto</div>
+               <a href="mailto:contacto@ukkoenergy.com" className="text-white/60 hover:text-white transition-colors font-medium">contacto@ukkoenergy.com</a>
+               <p className="text-white/40 text-sm leading-relaxed mt-2">
+                 Buenos Aires, Argentina<br />
+                 UKKO ENERGY SOLUTIONS
+               </p>
             </div>
             <div className="flex flex-col gap-4">
-               <div className="font-bold text-teal mb-2">Redes Sociales</div>
-               <a href="#" className="text-white/60 hover:text-white transition-colors font-medium">LinkedIn</a>
-               <a href="#" className="text-white/60 hover:text-white transition-colors font-medium">Twitter</a>
-               <a href="#" className="text-white/60 hover:text-white transition-colors font-medium">Instagram</a>
+               <div className="font-bold text-emerald mb-2 uppercase text-xs tracking-widest">Redes Sociales</div>
+               <a href="#" className="text-white/60 hover:text-white transition-colors font-medium flex items-center gap-2">
+                 LinkedIn
+               </a>
+               <a href="#" className="text-white/60 hover:text-white transition-colors font-medium flex items-center gap-2">
+                 YouTube
+               </a>
+               <a href="#" className="text-white/60 hover:text-white transition-colors font-medium flex items-center gap-2">
+                 Instagram
+               </a>
             </div>
           </div>
         </div>
         <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-white/30 text-xs font-medium tracking-wide">© 2026 UKKO ENERGY SOLUTIONS. TODOS LOS DERECHOS RESERVADOS.</div>
-          <div className="flex gap-8 text-xs font-medium tracking-wide text-white/30">
+          <div className="text-white/30 text-[10px] font-bold tracking-[0.2em] uppercase">© 2026 UKKO ENERGY SOLUTIONS. TODOS LOS DERECHOS RESERVADOS.</div>
+          <div className="flex gap-8 text-[10px] font-bold tracking-[0.2em] uppercase text-white/30">
              <a href="#" className="hover:text-white transition-colors">Política de Privacidad</a>
              <a href="#" className="hover:text-white transition-colors">Términos de Servicio</a>
           </div>

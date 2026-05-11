@@ -37,18 +37,20 @@ export default function Navbar() {
 
         {/* Links container - Center */}
         <div className="hidden md:flex gap-6 text-lg font-medium text-white/90">
-          <a href="#" className="nav-link-white transition-colors">Soluciones</a>
           <a href="#about-us" className="nav-link-white transition-colors">Nosotros</a>
-          <a href="#" className="nav-link-white transition-colors">Infraestructura</a>
-          <a href="#" className="nav-link-white transition-colors">Innovación</a>
-          <a href="#" className="nav-link-white transition-colors">Impacto</a>
+          <a href="#unidades" className="nav-link-white transition-colors">Unidades</a>
+          <a href="#metodologia" className="nav-link-white transition-colors">Metodología</a>
+          <a href="#clientes" className="nav-link-white transition-colors">Clientes</a>
         </div>
 
         {/* Button container - Right */}
         <div className="flex-1 flex justify-end">
-          <button className="hidden md:block text-base font-medium border-2 border-white/30 px-6 py-1.5 rounded-full hover:bg-white hover:text-ukko-blue transition-all text-white">
+          <a 
+            href="#contacto"
+            className="hidden md:block text-base font-medium border-2 border-white/30 px-6 py-1.5 rounded-full hover:bg-white hover:text-ukko-blue transition-all text-white"
+          >
             Contáctanos
-          </button>
+          </a>
         </div>
       </div>
     </nav>

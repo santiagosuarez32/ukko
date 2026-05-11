@@ -12,39 +12,177 @@ import {
   PiSealCheck, 
   PiLightbulb, 
   PiGear, 
-  PiChartBar 
+  PiChartBar,
+  PiIdentificationCard,
+  PiShieldCheck,
+  PiPulse,
+  PiStrategy,
+  PiBookOpen,
+  PiClipboardText,
+  PiWrench,
+  PiMapTrifold,
+  PiPackage,
+  PiFileText,
+  PiWarehouse,
+  PiStack,
+  PiBoat,
+  PiGlobe,
+  PiBuildings,
+  PiTruck,
+  PiArchive
 } from "react-icons/pi";
 
 const methodologyData = [
   {
     id: "01",
     title: "Gestión Integral de Emisiones",
-    subtitle: "Plan Estratégico para la Neutralidad en Carbono",
+    subtitle: "Soluciones de extremo a extremo para la descarbonización",
+    bgImage: "/emisiones.jpg",
     alcances: [
-      { title: "Huella de Carbono Organizacional", desc: "Medición y **cuantificación de emisiones** a nivel organizacional." },
-      { title: "Huella de Carbono de Productos", desc: "Cálculo de emisiones asociadas al **ciclo de vida** del producto." },
-      { title: "Análisis de Ciclo de Vida", desc: "Evaluación ambiental integral **desde la cuna hasta la tumba**." },
-      { title: "Finanzas Sostenibles", desc: "Bonos de carbono y mecanismos de financiamiento verde." },
+      { title: "Huella de Carbono Organizacional", desc: "**Cálculo y reporte** de la huella de carbono organizacional (ISO 14064)." },
+      { title: "Huella de Carbono de Productos", desc: "**Cálculo de la huella** de carbono de productos y servicios (ISO 14067)." },
+      { title: "Análisis de Ciclo de Vida", desc: "**Estudio del impacto** ambiental en todo el ciclo de vida (ISO 14040/44)." },
+      { title: "Finanzas Sostenibles", desc: "**Asesoramiento** en bonos verdes, mercados de carbono y taxonomía." },
       { title: "Soluciones de Mitigación", desc: "Diseño e implementación de estrategias de **reducción de emisiones**." }
     ],
     planAccion: [
-      { id: "01", title: "DIAGNÓSTICO", desc: "**Análisis y caracterización** de procesos", icon: PiMagnifyingGlass },
-      { id: "02", title: "INVENTARIO", desc: "**Cálculo del inventario** de emisiones GEI", icon: PiListChecks },
-      { id: "03", title: "VERIFICACIÓN", desc: "**Verificación del inventario** GEI y línea base", icon: PiSealCheck },
-      { id: "04", title: "ESTRATEGIA", desc: "**Estudio y selección** de propuestas de mitigación", icon: PiLightbulb },
-      { id: "05", title: "IMPLEMENTACIÓN", desc: "**Ejecución de acciones** y proyectos seleccionados", icon: PiGear },
-      { id: "06", title: "VALIDACIÓN", desc: "**Verificación de la eficacia** de las acciones", icon: PiChartBar }
+      { id: "01", title: "Diagnóstico", desc: "**Análisis y caracterización** de procesos", icon: PiMagnifyingGlass },
+      { id: "02", title: "Inventario", desc: "**Cálculo del inventario** de emisiones GEI", icon: PiListChecks },
+      { id: "03", title: "Verificación", desc: "**Verificación del inventario** GEI y línea base", icon: PiSealCheck },
+      { id: "04", title: "Estrategia", desc: "**Estudio y selección** de propuestas de mitigación", icon: PiLightbulb },
+      { id: "05", title: "Implementación", desc: "**Ejecución de acciones** y proyectos seleccionados", icon: PiGear },
+      { id: "06", title: "Validación", desc: "**Verificación de la eficacia** de las acciones", icon: PiChartBar }
     ]
+  },
+  {
+    id: "02",
+    title: "Resiliencia Climática",
+    subtitle: "Evaluación del riesgo, vulnerabilidad climática y medidas de adaptación",
+    bgImage: "/arboles.jpg",
+    alcances: [
+      { title: "Diagnóstico", desc: "**Análisis y caracterización** de procesos y actividades" },
+      { title: "Identificación y requisitos", desc: "**Identificación de riesgos** climáticos y requisitos" },
+      { title: "Evaluación", desc: "**Evaluación y revisión** del plan de continuidad" },
+      { title: "Nivel de vulnerabilidad", desc: "**Vulnerabilidad climática** de los activos y del negocio" },
+      { title: "Acciones", desc: "**Análisis técnico y económico** de mejoras" },
+      { title: "Plan de Resiliencia Climática", desc: "**Estrategia de resiliencia** de corto, mediano y largo plazo" }
+    ],
+    planAccion: []
+  },
+  {
+    id: "03",
+    title: "Gestión Integral de Residuos Peligrosos",
+    subtitle: "Solución de extremo a extremo como Operador/Exportador",
+    description: "Servicios personalizados",
+    bgImage: "/maritima.jpg",
+    alcances: [
+      { stage: "Etapa 1", title: "Acondicionamiento de tambores", icon: PiPackage },
+      { stage: "Etapa 1", title: "Tramitación de permisos", icon: PiFileText },
+      { stage: "Etapa 2", title: "Transporte nacional", icon: PiTruck },
+      { stage: "Etapa 2", title: "Depósito transitorio", icon: PiWarehouse },
+      { stage: "Etapa 2", title: "Transporte a puerto", icon: PiTruck },
+      { stage: "Etapa 3", title: "Descarga y consolidación", icon: PiArchive },
+      { stage: "Etapa 3", title: "Logística marítima", icon: PiBoat },
+      { stage: "Etapa 3", title: "Transporte internacional", icon: PiGlobe },
+      { stage: "Etapa 3", title: "Planta de tratamiento", icon: PiBuildings },
+      { stage: "Etapa 3", title: "Reporte final", icon: PiChartBar }
+    ],
+    planAccion: [
+      { 
+        id: "01", 
+        title: "Exportación marítima y terrestre de residuos", 
+        desc: "Realizamos la gestión integral para el desarrollo de estrategias de exportación de materiales peligrosos, ya sea por vía marítima o terrestre.", 
+        icon: PiPulse 
+      },
+      { 
+        id: "02", 
+        title: "Gestión de cargas en el exterior", 
+        desc: "Proveemos soluciones de campo a nivel internacional, inspección en puertos y locaciones definidas, desconsolidación de cargas, transporte terrestre internacional, almacenamiento temporario de residuos peligrosos en el exterior.", 
+        icon: PiMapTrifold 
+      },
+      { 
+        id: "03", 
+        title: "Operador/Exportador", 
+        desc: "Desarrollamos todas las actividades ante clientes, generadores, tratadores, autoridades nacionales, provinciales, aduaneras, etc, asegurando una solución de extremo a extremo.", 
+        icon: PiSealCheck 
+      },
+      { 
+        id: "04", 
+        title: "Gestión de cargas y materiales", 
+        desc: "Proveemos soluciones de campo a nivel nacional para la consolidación de cargas, preparación para exportación, transporte nacional terrestre, almacenamiento temporario de residuos peligrosos y consolidación de carga en contenedores para exportación.", 
+        icon: PiGear 
+      }
+    ]
+  },
+  {
+    id: "04",
+    title: "Energía Renovable y Gestión Energética",
+    subtitle: "Soluciones de energía renovable y gestión energética eficiente",
+    description: "Desarrollamos proyectos de energía renovable llave en mano",
+    bgImage: "/solar.jpg",
+    capacidades: [
+      "**Asesoría técnica** y regulatoria",
+      "**Aplicación de soluciones** a medida",
+      "**Ingeniería** y procura",
+      "**Construcción** y montaje",
+      "**Puesta en marcha**"
+    ],
+    objetivos: [
+      "**Optimización** del consumo de energía",
+      "**Reducción** de costos de energía",
+      "**Reducción** de emisiones de GEI",
+      "**Impacto positivo** en imagen y compromiso con la innovación"
+    ],
+    alcances: [],
+    planAccion: []
+  },
+  {
+    id: "05",
+    title: "Formación de Líderes",
+    subtitle: "Programa integral de formación en descarbonización y neutralidad en carbono",
+    description: "Desarrollamos programas de capacitación personalizados para líderes y equipos técnicos, enfocados en la gestión estratégica de la sostenibilidad y mercados de carbono.",
+    bgImage: "/nivel.webp",
+    niveles: [
+      {
+        title: "Nivel Inicial",
+        color: "bg-[#34665A]",
+        modules: [
+          "Introducción a la Gestión del Riesgo Climático",
+          "Mitigación y Adaptación del Riesgo Climático",
+          "Transición Energética, Sustentabilidad y Neutralidad en Carbono",
+          "Introducción a Sistemas de Gestión de la Energía (ISO 50001:2018)"
+        ]
+      },
+      {
+        title: "Nivel Avanzado",
+        color: "bg-[#2D5A50]",
+        modules: [
+          "Aseguramiento de la Neutralidad en Carbono",
+          "Cálculo de Huellas de Carbono de Productos, Organizaciones y Proyectos",
+          "Gestión del Riesgo Climático y Resiliencia Climática",
+          "Programas y Protocolos de Neutralidad en Carbono"
+        ]
+      },
+      {
+        title: "Nivel Experto",
+        color: "bg-[#2B4B52]",
+        modules: [
+          "Análisis Económico Financiero de proyectos de Mitigación de GEI",
+          "Introducción a los Mercados de Carbono y Finanzas Verdes",
+          "Validadores y Verificadores internos de Inventarios de GEI",
+          "Introducción a la Huella Hídrica (ISO 14046:2014)"
+        ]
+      }
+    ],
+    alcances: [],
+    planAccion: []
   }
 ];
 
 export default function Methodology() {
-  const [activeUnit, setActiveUnit] = useState(0);
   const [triggerUnderline, setTriggerUnderline] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-10% 0px" });
-
-  const unit = methodologyData[activeUnit];
 
   return (
     <section ref={containerRef} id="methodology" className="py-32 px-6 bg-white overflow-hidden relative">
@@ -97,145 +235,427 @@ export default function Methodology() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-lg md:text-xl text-carbon/60 leading-relaxed font-medium tracking-tight"
+            className="text-lg md:text-xl text-carbon/60 leading-relaxed font-medium tracking-tight mb-20"
           >
             Procesos estructurados con resultados medibles y verificables bajo normas internacionales.
           </motion.p>
         </div>
+        <div className="space-y-40">
+          {methodologyData.map((unit, unitIdx) => (
+            <motion.div 
+              key={unit.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="space-y-24"
+            >
+            {(unit.id === "04" || unit.id === "05") ? (
+              <div className="space-y-20">
+                {/* Unit Header */}
+                <div className="flex flex-col md:flex-row md:items-end gap-6 border-b border-carbon/5 pb-8 relative">
+                  <span className="text-6xl md:text-9xl font-bold ukko-gradient opacity-40 leading-none tracking-tighter -mb-2">{unit.id}</span>
+                  <div>
+                    <h3 className="text-3xl md:text-5xl font-bold text-carbon mb-2">{unit.title}</h3>
+                    <p className="text-carbon/40 font-medium tracking-tight text-lg">{unit.subtitle}</p>
+                  </div>
+                </div>
 
-        {/* Methodology Content Showcase */}
-        <AnimatePresence mode="wait">
-          <motion.div 
-            key={activeUnit}
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            exit={{ opacity: 0, y: -30 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-24"
-          >
-            {/* Unit Header */}
-            <div className="flex flex-col md:flex-row md:items-end gap-6 border-b border-carbon/5 pb-8 relative">
-              <span className="text-6xl md:text-9xl font-bold ukko-gradient opacity-20 leading-none tracking-tighter -mb-2">{unit.id}</span>
-              <div>
-                <h3 className="text-3xl md:text-5xl font-bold text-carbon mb-2">{unit.title}</h3>
-                <p className="text-carbon/40 font-medium tracking-tight text-lg">{unit.subtitle}</p>
-              </div>
-            </div>
+                <div className="max-w-4xl">
+                  <p className="text-carbon/60 font-medium tracking-tight text-xl leading-relaxed">{unit.description}</p>
+                </div>
 
-            {/* Alcances Section */}
-            <div>
-              <div className="mb-10">
-                <AnimatedText 
-                  trigger={isInView}
-                  underlineClassName="text-emerald/60"
-                  className="inline-block"
-                >
-                  <h4 className="text-2xl font-bold text-carbon">Alcances</h4>
-                </AnimatedText>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-                {unit.alcances.map((alcance, idx) => {
-                  const colors = [
-                    "bg-[#325A77]", // Navy Blue
-                    "bg-[#25524B]", // Deep Green
-                    "bg-[#2B595C]", // Teal
-                    "bg-[#81B1A0]", // Mint
-                    "bg-[#1D2B33]", // Dark Carbon
-                  ];
-                  return (
-                    <motion.div 
-                      key={idx}
-                      whileHover={{ y: -10 }}
-                      className={`${colors[idx % colors.length]} rounded-t-full px-4 pt-12 pb-10 flex flex-col items-center text-center shadow-xl hover:shadow-2xl transition-all duration-300 min-h-[320px] justify-between`}
-                    >
-                      <div className="relative w-16 h-16 mb-6">
-                        <Image 
-                          src="/logo-u.png" 
-                          alt="Logo U" 
-                          fill 
-                          className="object-contain brightness-0 invert opacity-90"
-                        />
+                {/* Unit 04 Layout (2-column capacities) */}
+                {unit.id === "04" && (
+                  <div className="max-w-5xl mx-auto bg-[#6EA593] p-8 md:p-10 rounded-[32px] shadow-xl text-white relative z-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                      <div>
+                        <h4 className="text-xl md:text-2xl font-bold mb-6">Capacidades</h4>
+                        <ul className="space-y-3">
+                          {unit.capacidades?.map((item: string, i: number) => (
+                            <li key={i} className="flex items-start gap-3 text-white/90 font-medium">
+                              <span className="text-white text-lg mt-0.5">•</span>
+                              <span className="text-base md:text-lg tracking-tight leading-snug">
+                                {item.split(/(\*\*.*?\*\*)/).map((part, index) => 
+                                  part.startsWith('**') && part.endsWith('**') 
+                                    ? <strong key={index} className="font-extrabold text-white">{part.slice(2, -2)}</strong>
+                                    : part
+                                )}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                      <h5 className="text-sm font-bold text-white leading-tight px-2">{alcance.title}</h5>
-                      <div className="h-1 w-8 bg-white/20 my-4" />
-                      <p 
-                        className="text-xs text-white/80 leading-relaxed px-4"
-                        dangerouslySetInnerHTML={{ 
-                          __html: alcance.desc.replace(/\*\*(.*?)\*\*/g, '<span class="font-black text-white">$1</span>') 
-                        }}
-                      />
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Plan de Acción Section */}
-            <div className="relative">
-              <div className="mb-20">
-                <AnimatedText 
-                  trigger={isInView}
-                  underlineClassName="text-emerald/60"
-                  className="inline-block"
-                >
-                  <h4 className="text-2xl font-bold text-carbon">Plan de acción</h4>
-                </AnimatedText>
-              </div>
-              
-              {/* SVG Gradient Defs for Icons */}
-              <svg width="0" height="0" className="absolute">
-                <defs>
-                  <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#111111" />
-                    <stop offset="100%" stopColor="#444444" />
-                  </linearGradient>
-                </defs>
-              </svg>
-
-              {/* Desktop Connectors */}
-              <div className="hidden lg:block absolute top-[110px] left-[10%] right-[10%] h-[1px] bg-carbon/10 z-0" />
-
-              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-16 relative z-10">
-                {unit.planAccion.map((step, idx) => (
-                  <div 
-                    key={idx} 
-                    className="relative flex flex-col group"
-                  >
-                    {/* Card Content */}
-                    <div className="pt-16 px-5 pb-10 bg-white border border-carbon/5 rounded-[32px] h-full flex flex-col items-center relative">
-                      {/* Step Number - Top Left Border */}
-                      <span className="absolute -top-4 left-4 text-4xl font-black text-carbon opacity-20 z-20">
-                        {step.id}
-                      </span>
-
-                      {/* Large Icon - Top Center Border */}
-                      <div className="absolute -top-10 left-1/2 -translate-x-1/2 z-20" style={{ color: 'url(#icon-gradient)' }}>
-                        <step.icon size={64} strokeWidth={1} fill="url(#icon-gradient)" />
+                      <div>
+                        <h4 className="text-xl md:text-2xl font-bold mb-6">Objetivos</h4>
+                        <ul className="space-y-3">
+                          {unit.objetivos?.map((item: string, i: number) => (
+                            <li key={i} className="flex items-start gap-3 text-white/90 font-medium">
+                              <span className="text-white text-lg mt-0.5">•</span>
+                              <span className="text-base md:text-lg tracking-tight leading-snug">
+                                {item.split(/(\*\*.*?\*\*)/).map((part, index) => 
+                                  part.startsWith('**') && part.endsWith('**') 
+                                    ? <strong key={index} className="font-extrabold text-white">{part.slice(2, -2)}</strong>
+                                    : part
+                                )}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-
-                      <h5 className="text-[15px] font-bold text-carbon mb-3 text-center leading-tight">{step.title.charAt(0) + step.title.slice(1).toLowerCase()}</h5>
-                      <p 
-                        className="text-[11px] text-carbon/40 leading-relaxed font-medium transition-colors text-center"
-                        dangerouslySetInnerHTML={{ 
-                          __html: step.desc.replace(/\*\*(.*?)\*\*/g, '<span class="font-bold text-carbon/80">$1</span>') 
-                        }}
-                      />
                     </div>
 
-                    {/* Connector Arrow (Desktop) */}
-                    {idx < unit.planAccion.length - 1 && (
-                      <div className="hidden lg:block absolute top-1/2 -right-3 -translate-y-1/2 text-carbon/5">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
+                    {/* Subtle U Logo Accent */}
+                    <div className="absolute bottom-6 right-8 w-12 h-12 opacity-80 pointer-events-none">
+                      <Image 
+                        src="/logo-u.png" 
+                        alt="Ukko U" 
+                        fill 
+                        className="object-contain brightness-0 invert"
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {/* Unit 05 Layout (3-card levels) */}
+                {unit.id === "05" && (
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+                    {unit.niveles?.map((nivel: any, i: number) => (
+                      <motion.div 
+                        key={i}
+                        className={`${nivel.color} p-8 md:p-10 rounded-[32px] shadow-xl text-white flex flex-col h-full`}
+                      >
+                        <h4 className="text-2xl md:text-3xl font-bold mb-10 leading-tight tracking-tight">
+                          {nivel.title}
+                        </h4>
+                        <ul className="space-y-6 mt-auto">
+                          {nivel.modules.map((module: string, idx: number) => (
+                            <li key={idx} className="flex items-start gap-3 text-white/80 border-b border-white/10 pb-4 last:border-0 last:pb-0">
+                              <span className="text-white/60 text-lg">→</span>
+                              <span className="text-[14px] md:text-[15px] font-medium leading-tight tracking-tight">
+                                {module}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        {/* Subtle U Logo Accent */}
+                        <div className="absolute bottom-6 right-8 w-10 h-10 opacity-30 pointer-events-none">
+                          <Image 
+                            src="/logo-u.png" 
+                            alt="Ukko U" 
+                            fill 
+                            className="object-contain brightness-0 invert"
+                          />
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Full-width Image Card (Standalone) - Overlapping with negative margin */}
+                <div className="relative h-[300px] w-screen left-1/2 -translate-x-1/2 overflow-hidden -mt-40 z-0 [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent),linear-gradient(to_right,transparent,black_30%,black_70%,transparent)] [mask-composite:intersect] opacity-60">
+                  <Image 
+                    src={unit.bgImage || ""} 
+                    alt={unit.title}
+                    fill
+                    className="object-cover"
+                    unoptimized
+                  />
+                  {/* Subtle Overlay */}
+                  <div className="absolute inset-0 bg-black/5" />
+                </div>
+              </div>
+            ) : (
+              <>
+                {/* Unit Header */}
+                <div className="flex flex-col md:flex-row md:items-end gap-6 border-b border-carbon/5 pb-8 relative">
+                  <span className="text-6xl md:text-9xl font-bold ukko-gradient opacity-40 leading-none tracking-tighter -mb-2">{unit.id}</span>
+                  <div>
+                    <h3 className="text-3xl md:text-5xl font-bold text-carbon mb-2">{unit.title}</h3>
+                    <p className="text-carbon/40 font-medium tracking-tight text-lg">{unit.subtitle}</p>
+                  </div>
+                </div>
+
+                {/* Alcances Section */}
+                <div>
+                  <div className="mb-10">
+                    <AnimatedText 
+                      trigger={true}
+                      underlineClassName="text-emerald/60"
+                      className="inline-block"
+                    >
+                      <h4 className="text-2xl font-bold text-carbon">
+                        {unit.id === "02" ? "Plan de acción" : unit.id === "03" ? "Proceso operativo en 3 etapas" : "Alcances"}
+                      </h4>
+                    </AnimatedText>
+                  </div>
+                  {unit.id === "03" ? (
+                    <div className="relative py-12 overflow-x-auto no-scrollbar">
+                      <div className="min-w-[1100px] px-10">
+                        {/* Timeline Container */}
+                        <div className="flex items-start justify-between relative mb-12">
+                          
+                          {unit.alcances.map((alcance: any, idx) => (
+                            <div key={idx} className="flex flex-col items-center relative z-10 flex-1">
+                              {/* Label Above (Alternating) */}
+                              <div className={`h-20 flex flex-col items-center justify-end mb-4 text-center ${idx % 2 !== 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                                <span className="text-[11px] font-bold text-carbon/80 leading-tight max-w-[120px] mb-2">{alcance.title}</span>
+                                <div className="w-[1px] h-4 bg-[#4A8F7D]/40 relative">
+                                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-[#4A8F7D] rounded-full" />
+                                </div>
+                              </div>
+
+                              {/* Circle Card Container */}
+                              <div className={`relative transition-all duration-500 ${idx % 2 !== 0 ? '-translate-y-4' : 'translate-y-4'}`}>
+                                {/* Decorative Curved Lines (Rings) */}
+                                <div className="absolute -inset-2 border-t-2 border-carbon/20 rounded-full" />
+                                <div className="absolute -inset-2 border-b-2 border-carbon/20 rounded-full" />
+                                
+                                {/* Main Circle */}
+                                <div className="w-20 h-20 rounded-full bg-white border-[6px] border-[#4A8F7D] flex items-center justify-center shadow-md relative z-10">
+                                  <alcance.icon size={32} className="text-[#325A77]" />
+                                  
+                                  {/* Connector Arrow (Pointing to next card) */}
+                                  {idx < unit.alcances.length - 1 && (
+                                    <div className={`absolute top-1/2 -right-10 -translate-y-1/2 text-[#4A8F7D] z-20 ${idx % 2 !== 0 ? 'rotate-[15deg] translate-y-4' : '-rotate-[15deg] -translate-y-4'}`}>
+                                      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M8 5v14l11-7z" />
+                                      </svg>
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
+
+                              {/* Label Below (Alternating) */}
+                              <div className={`mt-4 flex flex-col items-center text-center ${idx % 2 === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                                <div className="w-[1px] h-4 bg-[#4A8F7D]/40 relative mb-2">
+                                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-[#4A8F7D] rounded-full" />
+                                </div>
+                                <span className="text-[11px] font-bold text-carbon/80 leading-tight max-w-[120px] inline-block">{alcance.title}</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Stage Brackets */}
+                        <div className="flex px-[5%]">
+                          <div className="flex-[2] flex flex-col items-center px-2">
+                            <div className="w-full h-3 border-x-2 border-b-2 border-emerald/20 rounded-b-sm mb-3" />
+                            <span className="text-[13px] font-black text-emerald/60 tracking-wider">Etapa 1</span>
+                          </div>
+                          <div className="flex-[3] flex flex-col items-center px-2">
+                            <div className="w-full h-3 border-x-2 border-b-2 border-emerald/20 rounded-b-sm mb-3" />
+                            <span className="text-[13px] font-black text-emerald/60 tracking-wider">Etapa 2</span>
+                          </div>
+                          <div className="flex-[5] flex flex-col items-center px-2">
+                            <div className="w-full h-3 border-x-2 border-b-2 border-emerald/20 rounded-b-sm mb-3" />
+                            <span className="text-[13px] font-black text-emerald/60 tracking-wider">Etapa 3</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <>
+                      <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-${unit.alcances.length} gap-6 relative z-10`}>
+                      {unit.alcances.map((alcance: any, idx) => {
+                        const colors = [
+                          "bg-[#325A77]", // Navy Blue
+                          "bg-[#25524B]", // Deep Green
+                          "bg-[#2B595C]", // Teal
+                          "bg-[#81B1A0]", // Mint
+                          "bg-[#1D2B33]", // Dark Carbon
+                        ];
+                        return (
+                          <motion.div 
+                            key={idx}
+                            whileHover={{ y: -10 }}
+                            className={`${colors[idx % colors.length]} rounded-t-full px-4 pt-12 pb-10 flex flex-col items-center text-center shadow-xl hover:shadow-2xl transition-all duration-300 min-h-[350px] justify-between relative`}
+                          >
+                            {alcance.stage && (
+                              <div className="absolute top-4 left-1/2 -translate-x-1/2 text-[9px] font-black tracking-widest text-white/40 uppercase">
+                                {alcance.stage}
+                              </div>
+                            )}
+                            <div className="relative w-14 h-14 mb-4">
+                              <Image 
+                                src="/logo-u.png" 
+                                alt="Logo U" 
+                                fill 
+                                className="object-contain brightness-0 invert opacity-90"
+                              />
+                            </div>
+                            <h5 className="text-sm font-bold text-white leading-tight px-2">{alcance.title}</h5>
+                            <div className="h-1 w-8 bg-white/20 my-4" />
+                            <p 
+                              className="text-xs text-white/80 leading-relaxed px-4"
+                              dangerouslySetInnerHTML={{ 
+                                __html: alcance.desc?.replace(/\*\*(.*?)\*\*/g, '<span class="font-black text-white">$1</span>') || '' 
+                              }}
+                            />
+                          </motion.div>
+                        );
+                      })}
+                    </div>
+                    
+                    {/* Full-width Image Card for Unit 02 (Standalone) */}
+                    {unit.id === "02" && (
+                      <div className="relative h-[300px] w-screen left-1/2 -translate-x-1/2 overflow-hidden -mt-40 z-0 [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent),linear-gradient(to_right,transparent,black_30%,black_70%,transparent)] [mask-composite:intersect] opacity-60">
+                        <Image 
+                          src={unit.bgImage || ""} 
+                          alt={unit.title}
+                          fill
+                          className="object-cover"
+                          unoptimized
+                        />
+                        {/* Subtle Overlay */}
+                        <div className="absolute inset-0 bg-black/5" />
                       </div>
                     )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </AnimatePresence>
+                  </>
+                )}
+                </div>
+
+                {/* Plan de Acción Section */}
+                {unit.planAccion.length > 0 && (
+                  <div className="relative">
+                    <div className="mb-20">
+                      <AnimatedText 
+                        trigger={true}
+                        underlineClassName="text-emerald/60"
+                        className="inline-block"
+                      >
+                        <h4 className="text-2xl font-bold text-carbon">
+                          {unit.id === "03" ? "Servicios especializados" : "Plan de acción"}
+                        </h4>
+                      </AnimatedText>
+                    </div>
+                  
+                  {/* SVG Gradient Defs for Icons */}
+                  <svg width="0" height="0" className="absolute">
+                    <defs>
+                      <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#111111" />
+                        <stop offset="100%" stopColor="#444444" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+
+                  {/* Desktop Connectors - Removed for a cleaner look */}
+
+                  {unit.id === "03" ? (
+                    <>
+                      <div className="bg-[#25524B] rounded-[32px] p-10 md:p-14 relative overflow-hidden group z-10">
+                      {/* Subtle U Logo Accent */}
+                      <div className="absolute bottom-6 right-8 w-12 h-12 opacity-80 pointer-events-none">
+                        <Image 
+                          src="/logo-u.png" 
+                          alt="Ukko U" 
+                          fill 
+                          className="object-contain brightness-0 invert"
+                        />
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
+                        {unit.planAccion.map((step, idx) => (
+                          <div key={idx} className="flex flex-col gap-4">
+                            <h5 className="text-lg md:text-[19px] font-bold text-white leading-tight tracking-tight">
+                              {step.title}
+                            </h5>
+                            <p 
+                              className="text-base md:text-[16px] text-white/80 font-medium leading-relaxed tracking-tight"
+                              dangerouslySetInnerHTML={{ 
+                                __html: step.desc.replace(/\*\*(.*?)\*\*/g, '<span class="font-bold text-white">$1</span>') 
+                              }}
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Full-width Image Card for Unit 03 (Standalone) */}
+                      <div className="relative h-[300px] w-screen left-1/2 -translate-x-1/2 overflow-hidden -mt-40 z-0 [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent),linear-gradient(to_right,transparent,black_30%,black_70%,transparent)] [mask-composite:intersect] opacity-60">
+                        <Image 
+                          src={unit.bgImage || ""} 
+                          alt={unit.title}
+                          fill
+                          className="object-cover"
+                          unoptimized
+                        />
+                        {/* Subtle Overlay */}
+                        <div className="absolute inset-0 bg-black/5" />
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className={`grid grid-cols-1 md:grid-cols-3 lg:grid-cols-${unit.planAccion.length} gap-x-6 gap-y-16 relative z-10`}>
+                        {unit.planAccion.map((step, idx) => (
+                        <div 
+                          key={idx} 
+                          className="relative flex flex-col group"
+                        >
+                          {/* Card Content */}
+                          <div className="pt-16 px-5 pb-10 bg-white border border-carbon/5 rounded-[32px] h-full flex flex-col items-center relative">
+                            {/* Step Number - Top Left with Easing Mask */}
+                            <span 
+                              className="absolute -top-6 -left-2 text-5xl font-black text-carbon opacity-30 z-20 pointer-events-none"
+                              style={{
+                                maskImage: 'linear-gradient(to right, black 40%, transparent 100%)',
+                                WebkitMaskImage: 'linear-gradient(to right, black 40%, transparent 100%)'
+                              }}
+                            >
+                              {step.id}
+                            </span>
+
+                            {/* Large Icon - Top Center Border */}
+                            <div className="absolute -top-10 left-1/2 -translate-x-1/2 z-20" style={{ color: 'url(#icon-gradient)' }}>
+                              <step.icon size={64} strokeWidth={1} fill="url(#icon-gradient)" />
+                            </div>
+
+                            <h5 className="text-[15px] font-bold text-carbon mb-3 text-center leading-tight">{step.title}</h5>
+                            <p 
+                              className="text-[11px] text-carbon/40 leading-relaxed font-medium transition-colors text-center"
+                              dangerouslySetInnerHTML={{ 
+                                __html: step.desc.replace(/\*\*(.*?)\*\*/g, '<span class="font-bold text-carbon/80">$1</span>') 
+                              }}
+                            />
+                          </div>
+
+                          {/* Connector Arrow (Desktop) */}
+                          {idx < unit.planAccion.length - 1 && (
+                            <div className="hidden lg:block absolute top-1/2 -right-3 -translate-y-1/2 text-carbon/5">
+                              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              </svg>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Full-width Image Card for Unit 01 (Standalone) */}
+                    {unit.id === "01" && (
+                      <div className="relative h-[300px] w-screen left-1/2 -translate-x-1/2 overflow-hidden -mt-20 z-0 [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent),linear-gradient(to_right,transparent,black_30%,black_70%,transparent)] [mask-composite:intersect] opacity-60">
+                        <Image 
+                          src={unit.bgImage || ""} 
+                          alt={unit.title}
+                          fill
+                          className="object-cover"
+                          unoptimized
+                        />
+                        {/* Subtle Overlay */}
+                        <div className="absolute inset-0 bg-black/5" />
+                      </div>
+                    )}
+                  </>
+                  )}
+                </div>
+                )}
+              </>
+            )}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
