@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { LiquidReveal } from "@/components/ui/LiquidReveal";
 
 interface HeroProps {
   title: string;
@@ -17,13 +17,15 @@ export default function Hero({ title }: HeroProps) {
           WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 55%, rgba(0,0,0,0.98) 65%, rgba(0,0,0,0.85) 75%, rgba(0,0,0,0.6) 84%, rgba(0,0,0,0.3) 92%, rgba(0,0,0,0.1) 97%, transparent 100%)' 
         }}
       >
-        <Image
+        <LiquidReveal
           src="/hero-3.png"
           alt="Fondo de Energía Renovable"
           fill
           unoptimized
+          containerClassName="w-full h-full"
           className="object-cover object-[center_40%] opacity-90"
           priority
+          delay={0.1}
         />
         <div className="absolute inset-0 bg-black/45"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60"></div>

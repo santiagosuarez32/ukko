@@ -1,13 +1,17 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,42 +23,44 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: "Nosotros", href: "#about-us" },
-    { label: "Unidades", href: "#unidades" },
-    { label: "Metodología", href: "#metodologia" },
-    { label: "Clientes", href: "#clientes" },
-    { label: "Contáctanos", href: "#contacto" },
+    { label: "Inicio", href: "/" },
+    { label: "Nosotros", href: "/sobre-nosotros" },
+    { label: "Unidades", href: "/#unidades" },
+    { label: "Metodología", href: "/#metodologia" },
+    { label: "Contáctanos", href: "/#contacto" },
   ];
 
   const handleNavClick = (e: React.MouseEvent, href: string) => {
-    e.preventDefault();
     setMenuOpen(false);
 
-    const target = href === "#" ? 0 : href;
-
-    if (typeof window !== "undefined") {
-      const element = document.querySelector(href);
+    // If it's an anchor on the same page
+    if (href.startsWith("/#") && pathname === "/") {
+      e.preventDefault();
+      const id = href.split("#")[1];
+      const element = document.getElementById(id);
       if (element) {
         const y = element.getBoundingClientRect().top + window.scrollY - 80;
         window.scrollTo({ top: y, behavior: 'smooth' });
-      } else if (href === "#") {
+      }
+    } else if (href === "/") {
+      if (pathname === "/") {
+        e.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     }
+    // Otherwise let Next.js Link handle it
   };
 
   return (
     <>
       <nav className={`fixed top-0 w-full z-[110] transition-all duration-500 px-6 md:px-10 ${
-        menuOpen
-          ? "bg-ukko-blue py-5" 
-          : isScrolled 
-            ? "bg-ukko-blue border-b border-white/10 shadow-lg py-3" 
-            : "bg-transparent border-b border-transparent py-5"
+        menuOpen || isScrolled || pathname !== "/"
+          ? "bg-ukko-blue border-b border-white/10 shadow-lg py-3" 
+          : "bg-transparent border-b border-transparent py-5"
       }`}>
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* Logo container - Left */}
-          <div className="relative h-12 w-40 cursor-pointer z-[120]" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <Link href="/" className="relative h-12 w-40 cursor-pointer z-[120]" onClick={(e) => handleNavClick(e, "/")}>
             <Image
               src="/logo-nav.png"
               alt="Logo de Ukko Energy"
@@ -62,31 +68,31 @@ export default function Navbar() {
               className="object-contain object-left"
               priority
             />
-          </div>
+          </Link>
 
           {/* Links container - Center (Desktop) */}
           <div className="hidden md:flex gap-6 items-center text-lg font-medium text-white/90">
             {navLinks.slice(0, 4).map((link) => (
-              <a 
+              <Link 
                 key={link.label}
                 href={link.href} 
                 onClick={(e) => handleNavClick(e, link.href)}
                 className="nav-link-white transition-colors cursor-pointer"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 
           {/* Button container - Right (Desktop) */}
           <div className="hidden md:flex justify-end">
-            <a 
-              href="#contacto"
-              onClick={(e) => handleNavClick(e, "#contacto")}
+            <Link 
+              href="/#contacto"
+              onClick={(e) => handleNavClick(e, "/#contacto")}
               className="text-base font-medium border-2 border-white/30 px-6 py-1.5 rounded-full hover:bg-white hover:text-ukko-blue transition-all text-white cursor-pointer"
             >
               Contáctanos
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -111,10 +117,8 @@ export default function Navbar() {
           >
             <nav className="flex flex-col items-center gap-8">
               {navLinks.map((link, index) => (
-                <motion.a
+                <motion.div
                   key={link.label}
-                  href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
                   initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: 20, opacity: 0 }}
@@ -123,10 +127,15 @@ export default function Navbar() {
                     delay: 0.2 + index * 0.1,
                     ease: "easeOut"
                   }}
-                  className="text-3xl font-bold text-white hover:text-emerald transition-colors cursor-pointer"
                 >
-                  {link.label}
-                </motion.a>
+                  <Link
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="text-3xl font-bold text-white hover:text-emerald transition-colors cursor-pointer"
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
               ))}
             </nav>
 

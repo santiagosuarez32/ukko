@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -21,10 +22,10 @@ export default function Footer() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 text-base w-full">
             <div className="flex flex-col gap-4">
                <div className="font-bold text-emerald mb-2 text-sm">Navegación</div>
-               <a href="#about-us" className="text-white/60 hover:text-white transition-colors font-medium">Nosotros</a>
-               <a href="#unidades" className="text-white/60 hover:text-white transition-colors font-medium">Unidades de Negocio</a>
-               <a href="#metodologia" className="text-white/60 hover:text-white transition-colors font-medium">Metodología</a>
-               <a href="#clientes" className="text-white/60 hover:text-white transition-colors font-medium">Clientes</a>
+               <Link href="/sobre-nosotros" className="text-white/60 hover:text-white transition-colors font-medium">Nosotros</Link>
+               <Link href="/#unidades" className="text-white/60 hover:text-white transition-colors font-medium">Unidades de Negocio</Link>
+               <Link href="/#metodologia" className="text-white/60 hover:text-white transition-colors font-medium">Metodología</Link>
+               <Link href="/#clientes" className="text-white/60 hover:text-white transition-colors font-medium">Clientes</Link>
             </div>
             <div className="flex flex-col gap-4">
                <div className="font-bold text-emerald mb-2 text-sm">Contacto</div>

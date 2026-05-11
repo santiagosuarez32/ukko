@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import { AnimatedText } from "@/components/ui/AnimatedText";
 import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
+import { LiquidReveal } from "@/components/ui/LiquidReveal";
 import { motion, useInView } from "framer-motion";
 import { FiZap, FiUsers, FiGlobe, FiTarget } from "react-icons/fi";
 
@@ -50,12 +51,14 @@ export default function AboutUs() {
           WebkitMaskImage: 'linear-gradient(to bottom, black 0%, rgba(0,0,0,0.5) 50%, transparent 100%)'
         }}
       >
-        <Image
+        <LiquidReveal
           src="/about.png"
           alt="Ukko About Background"
           fill
+          containerClassName="w-full h-full"
           className="object-contain object-right-top"
           unoptimized
+          delay={0.4}
         />
       </div>
 

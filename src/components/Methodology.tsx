@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import Image from "next/image";
+import { LiquidReveal } from "@/components/ui/LiquidReveal";
 import { motion, AnimatePresence, useInView, useScroll, useTransform } from "framer-motion";
 import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
 import { AnimatedText } from "@/components/ui/AnimatedText";
@@ -366,13 +367,14 @@ export default function Methodology() {
 
                 {/* Full-width Image Card (Standalone) - Overlapping with negative margin */}
                 <div className="relative h-[300px] w-screen left-1/2 -translate-x-1/2 overflow-hidden -mt-40 z-0 [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent),linear-gradient(to_right,transparent,black_30%,black_70%,transparent)] [mask-composite:intersect] opacity-60">
-                  <Image 
-                    src={unit.bgImage || ""} 
-                    alt={unit.title}
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
+                        <LiquidReveal 
+                          src={unit.bgImage || ""} 
+                          alt={unit.title}
+                          fill
+                          containerClassName="w-full h-full"
+                          className="object-cover"
+                          unoptimized
+                        />
                   {/* Subtle Overlay */}
                   <div className="absolute inset-0 bg-black/5" />
                 </div>
@@ -595,10 +597,11 @@ export default function Methodology() {
                     {/* Full-width Image Card for Unit 02 (Standalone) */}
                     {unit.id === "02" && (
                       <div className="relative h-[300px] w-screen left-1/2 -translate-x-1/2 overflow-hidden -mt-40 z-0 [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent),linear-gradient(to_right,transparent,black_30%,black_70%,transparent)] [mask-composite:intersect] opacity-60">
-                        <Image 
+                        <LiquidReveal 
                           src={unit.bgImage || ""} 
                           alt={unit.title}
                           fill
+                          containerClassName="w-full h-full"
                           className="object-cover"
                           unoptimized
                         />
@@ -669,10 +672,11 @@ export default function Methodology() {
 
                     {/* Full-width Image Card for Unit 03 (Standalone) */}
                       <div className="relative h-[300px] w-screen left-1/2 -translate-x-1/2 overflow-hidden -mt-40 z-0 [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent),linear-gradient(to_right,transparent,black_30%,black_70%,transparent)] [mask-composite:intersect] opacity-60">
-                        <Image 
+                        <LiquidReveal 
                           src={unit.bgImage || ""} 
                           alt={unit.title}
                           fill
+                          containerClassName="w-full h-full"
                           className="object-cover"
                           unoptimized
                         />
@@ -730,10 +734,11 @@ export default function Methodology() {
                     {/* Full-width Image Card for Unit 01 (Standalone) */}
                     {unit.id === "01" && (
                       <div className="relative h-[300px] w-screen left-1/2 -translate-x-1/2 overflow-hidden z-0 [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent),linear-gradient(to_right,transparent,black_30%,black_70%,transparent)] [mask-composite:intersect] opacity-60">
-                        <Image 
+                        <LiquidReveal 
                           src={unit.bgImage || ""} 
                           alt={unit.title}
                           fill
+                          containerClassName="w-full h-full"
                           className="object-cover"
                           unoptimized
                         />

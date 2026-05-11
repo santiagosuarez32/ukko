@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { LiquidReveal } from "@/components/ui/LiquidReveal";
 
 export default function Innovation() {
   return (
@@ -26,10 +26,11 @@ export default function Innovation() {
         </div>
         <div className="w-full lg:w-1/2 relative h-[600px]">
            <div className="innovation-image relative w-full h-full rounded-[60px] overflow-hidden shadow-2xl">
-              <Image
+              <LiquidReveal
                 src="/ukko_innovation.png"
                 alt="Centro de Innovación Energética"
                 fill
+                containerClassName="w-full h-full"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-ukko-blue/10 mix-blend-overlay"></div>

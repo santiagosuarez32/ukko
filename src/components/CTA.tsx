@@ -6,11 +6,11 @@ import { AnimatedText } from "@/components/ui/AnimatedText";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-export default function CTA() {
+export default function CTA({ className }: { className?: string }) {
   const [triggerUnderline, setTriggerUnderline] = useState(false);
 
   return (
-    <section id="contacto" className="py-32 px-6 bg-white relative overflow-hidden border-t border-carbon/5">
+    <section id="contacto" className={`py-32 px-6 bg-white relative overflow-hidden border-t border-carbon/5 ${className}`}>
       <div className="max-w-7xl mx-auto relative z-10">
         <span className="text-sm font-bold tracking-tight text-ukko-blue mb-8 inline-block border border-ukko-blue/20 px-4 py-1.5 rounded-full bg-ukko-blue/5 backdrop-blur-sm">
           Contacto
