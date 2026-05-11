@@ -8,14 +8,14 @@ import { AnimatedText } from "@/components/ui/AnimatedText";
 import Image from "next/image";
 
 const clientLogos = [
-  "/carousel/1.png",
-  "/carousel/2.png",
-  "/carousel/3.png",
-  "/carousel/4.png",
-  "/carousel/5.png",
-  "/carousel/6.png",
-  "/carousel/7.png",
-  "/carousel/8.png",
+  "/carousel/1.webp",
+  "/carousel/2.webp",
+  "/carousel/3.webp",
+  "/carousel/4.webp",
+  "/carousel/5.webp",
+  "/carousel/6.webp",
+  "/carousel/7.webp",
+  "/carousel/8.webp",
 ];
 
 // Double the list for seamless looping

@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="max-w-xs">
             <div className="relative h-20 w-56 mb-8">
               <Image
-                src="/logo.png"
+                src="/logo.webp"
                 alt="Logo de Ukko Energy"
                 fill
                 className="object-contain object-left"

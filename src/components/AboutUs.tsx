@@ -52,7 +52,7 @@ export default function AboutUs() {
         }}
       >
         <LiquidReveal
-          src="/about.png"
+          src="/about.webp"
           alt="Ukko About Background"
           fill
           containerClassName="w-full h-full"
@@ -203,7 +203,7 @@ export default function AboutUs() {
             {/* Background Image Container */}
             <div className="absolute inset-0 z-0">
               <Image
-                src="/about-paneles.jpg"
+                src="/about-paneles.webp"
                 alt="Paneles Solares Ukko"
                 fill
                 className="object-cover transition-transform duration-1000"

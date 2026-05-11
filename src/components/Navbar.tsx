@@ -62,7 +62,7 @@ export default function Navbar() {
           {/* Logo container - Left */}
           <Link href="/" className="relative h-12 w-40 cursor-pointer z-[120]" onClick={(e) => handleNavClick(e, "/")}>
             <Image
-              src="/logo-nav.png"
+              src="/logo-nav.webp"
               alt="Logo de Ukko Energy"
               fill
               className="object-contain object-left"

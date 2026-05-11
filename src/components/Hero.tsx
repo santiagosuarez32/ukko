@@ -18,7 +18,7 @@ export default function Hero({ title }: HeroProps) {
         }}
       >
         <LiquidReveal
-          src="/hero-3.png"
+          src="/hero-3.webp"
           alt="Fondo de Energía Renovable"
           fill
           unoptimized

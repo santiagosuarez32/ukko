@@ -101,7 +101,7 @@ export default function SobreNosotros() {
             {/* Right Image (Wider and Shorter) */}
             <div className="w-full lg:w-[60%] relative h-[350px] md:h-[450px]">
               <LiquidReveal
-                src="/sobre-mi.jpeg"
+                src="/sobre-mi.webp"
                 alt="Ukko Energy Team"
                 fill
                 containerClassName="w-full h-full rounded-[40px] overflow-hidden shadow-xl"

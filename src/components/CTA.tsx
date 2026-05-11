@@ -69,7 +69,7 @@ export default function CTA({ className }: { className?: string }) {
           {/* Background Image Container */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/energy-2.jpg"
+              src="/energy-2.webp"
               alt="Ukko Energy Future"
               fill
               className="object-cover"

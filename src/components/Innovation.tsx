@@ -27,7 +27,7 @@ export default function Innovation() {
         <div className="w-full lg:w-1/2 relative h-[600px]">
            <div className="innovation-image relative w-full h-full rounded-[60px] overflow-hidden shadow-2xl">
               <LiquidReveal
-                src="/ukko_innovation.png"
+                src="/ukko_innovation.webp"
                 alt="Centro de Innovación Energética"
                 fill
                 containerClassName="w-full h-full"

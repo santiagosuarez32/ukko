@@ -38,7 +38,7 @@ const methodologyData = [
     id: "01",
     title: "Gestión Integral de Emisiones",
     subtitle: "Soluciones de extremo a extremo para la descarbonización",
-    bgImage: "/emisiones.jpg",
+    bgImage: "/emisiones.webp",
     alcances: [
       { title: "Huella de Carbono Organizacional", desc: "**Cálculo y reporte** de la huella de carbono organizacional (ISO 14064)." },
       { title: "Huella de Carbono de Productos", desc: "**Cálculo de la huella** de carbono de productos y servicios (ISO 14067)." },
@@ -59,7 +59,7 @@ const methodologyData = [
     id: "02",
     title: "Resiliencia Climática",
     subtitle: "Evaluación del riesgo, vulnerabilidad climática y medidas de adaptación",
-    bgImage: "/arboles.jpg",
+    bgImage: "/arboles.webp",
     alcances: [
       { title: "Diagnóstico", desc: "**Análisis y caracterización** de procesos y actividades" },
       { title: "Identificación y requisitos", desc: "**Identificación de riesgos** climáticos y requisitos" },
@@ -75,7 +75,7 @@ const methodologyData = [
     title: "Gestión Integral de Residuos Peligrosos",
     subtitle: "Solución de extremo a extremo como Operador/Exportador",
     description: "Servicios personalizados",
-    bgImage: "/maritima.jpg",
+    bgImage: "/maritima.webp",
     alcances: [
       { stage: "Etapa 1", title: "Acondicionamiento de tambores", icon: PiPackage },
       { stage: "Etapa 1", title: "Tramitación de permisos", icon: PiFileText },
@@ -120,7 +120,7 @@ const methodologyData = [
     title: "Energía Renovable y Gestión Energética",
     subtitle: "Soluciones de energía renovable y gestión energética eficiente",
     description: "Desarrollamos proyectos de energía renovable llave en mano",
-    bgImage: "/solar.jpg",
+    bgImage: "/solar.webp",
     capacidades: [
       "**Asesoría técnica** y regulatoria",
       "**Aplicación de soluciones** a medida",
@@ -320,7 +320,7 @@ export default function Methodology() {
                     {/* Subtle U Logo Accent */}
                     <div className="absolute bottom-6 right-8 w-12 h-12 opacity-80 pointer-events-none">
                       <Image 
-                        src="/logo-u.png" 
+                        src="/logo-u.webp" 
                         alt="Ukko U" 
                         fill 
                         className="object-contain brightness-0 invert"
@@ -354,7 +354,7 @@ export default function Methodology() {
                         {/* Subtle U Logo Accent */}
                         <div className="absolute bottom-6 right-8 w-10 h-10 opacity-30 pointer-events-none">
                           <Image 
-                            src="/logo-u.png" 
+                            src="/logo-u.webp" 
                             alt="Ukko U" 
                             fill 
                             className="object-contain brightness-0 invert"
@@ -575,7 +575,7 @@ export default function Methodology() {
                             )}
                             <div className="relative w-10 h-10 md:w-12 md:h-12 mb-3">
                               <Image 
-                                src="/logo-u.png" 
+                                src="/logo-u.webp" 
                                 alt="Logo U" 
                                 fill 
                                 className="object-contain brightness-0 invert opacity-90"
@@ -646,7 +646,7 @@ export default function Methodology() {
                       {/* Subtle U Logo Accent */}
                       <div className="absolute bottom-6 right-8 w-12 h-12 opacity-80 pointer-events-none">
                         <Image 
-                          src="/logo-u.png" 
+                          src="/logo-u.webp" 
                           alt="Ukko U" 
                           fill 
                           className="object-contain brightness-0 invert"
