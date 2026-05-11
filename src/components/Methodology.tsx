@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { motion, AnimatePresence, useInView, useScroll, useTransform } from "framer-motion";
 import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
 import { AnimatedText } from "@/components/ui/AnimatedText";
 
@@ -184,6 +184,17 @@ export default function Methodology() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-10% 0px" });
 
+  // Scroll Progress for Mobile Timeline
+  const mobileTimelineRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: mobileTimelineRef,
+    offset: ["start 70%", "end 70%"]
+  });
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const opacityEtapa1 = useTransform(scrollYProgress, [0, 0.05], [0, 1]);
+  const opacityEtapa2 = useTransform(scrollYProgress, [0.35, 0.45], [0, 1]);
+  const opacityEtapa3 = useTransform(scrollYProgress, [0.80, 0.90], [0, 1]);
+
   return (
     <section ref={containerRef} id="methodology" className="py-32 px-6 bg-white overflow-hidden relative">
       {/* Decorative background element */}
@@ -195,7 +206,7 @@ export default function Methodology() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-left mb-24 max-w-4xl">
-          <span className="text-sm font-normal tracking-[-0.02em] text-ukko-blue mb-6 inline-block border border-ukko-blue/30 px-4 py-1.5 rounded-full bg-ukko-blue/5">
+          <span className="text-sm font-bold tracking-tight text-ukko-blue mb-8 inline-block border border-ukko-blue/20 px-4 py-1.5 rounded-full bg-ukko-blue/5 backdrop-blur-sm">
             Metodología
           </span>
           
@@ -391,70 +402,148 @@ export default function Methodology() {
                     </AnimatedText>
                   </div>
                   {unit.id === "03" ? (
-                    <div className="relative py-12 overflow-x-auto no-scrollbar">
-                      <div className="min-w-[1100px] px-10">
-                        {/* Timeline Container */}
-                        <div className="flex items-start justify-between relative mb-12">
-                          
-                          {unit.alcances.map((alcance: any, idx) => (
-                            <div key={idx} className="flex flex-col items-center relative z-10 flex-1">
-                              {/* Label Above (Alternating) */}
-                              <div className={`h-20 flex flex-col items-center justify-end mb-4 text-center ${idx % 2 !== 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                                <span className="text-[11px] font-bold text-carbon/80 leading-tight max-w-[120px] mb-2">{alcance.title}</span>
-                                <div className="w-[1px] h-4 bg-[#4A8F7D]/40 relative">
-                                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-[#4A8F7D] rounded-full" />
-                                </div>
-                              </div>
-
-                              {/* Circle Card Container */}
-                              <div className={`relative transition-all duration-500 ${idx % 2 !== 0 ? '-translate-y-4' : 'translate-y-4'}`}>
-                                {/* Decorative Curved Lines (Rings) */}
-                                <div className="absolute -inset-2 border-t-2 border-carbon/20 rounded-full" />
-                                <div className="absolute -inset-2 border-b-2 border-carbon/20 rounded-full" />
-                                
-                                {/* Main Circle */}
-                                <div className="w-20 h-20 rounded-full bg-white border-[6px] border-[#4A8F7D] flex items-center justify-center shadow-md relative z-10">
-                                  <alcance.icon size={32} className="text-[#325A77]" />
-                                  
-                                  {/* Connector Arrow (Pointing to next card) */}
-                                  {idx < unit.alcances.length - 1 && (
-                                    <div className={`absolute top-1/2 -right-10 -translate-y-1/2 text-[#4A8F7D] z-20 ${idx % 2 !== 0 ? 'rotate-[15deg] translate-y-4' : '-rotate-[15deg] -translate-y-4'}`}>
-                                      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M8 5v14l11-7z" />
-                                      </svg>
-                                    </div>
-                                  )}
-                                </div>
-                              </div>
-
-                              {/* Label Below (Alternating) */}
-                              <div className={`mt-4 flex flex-col items-center text-center ${idx % 2 === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                                <div className="w-[1px] h-4 bg-[#4A8F7D]/40 relative mb-2">
-                                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-[#4A8F7D] rounded-full" />
-                                </div>
-                                <span className="text-[11px] font-bold text-carbon/80 leading-tight max-w-[120px] inline-block">{alcance.title}</span>
-                              </div>
-                            </div>
-                          ))}
+                    <>
+                      {/* Mobile Layout (Vertical ZigZag with Scroll Progress) */}
+                      <div ref={mobileTimelineRef} className="block md:hidden relative py-12 pl-12 pr-2 overflow-hidden">
+                        
+                        {/* Vertical Progress Line Container */}
+                        <div className="absolute left-6 top-16 bottom-16 w-1.5 bg-emerald/10 rounded-full z-0">
+                           {/* Animated Fill */}
+                           <motion.div style={{ height: lineHeight }} className="absolute top-0 left-0 w-full bg-[#325A77] rounded-full z-10" />
+                           
+                           {/* Stage Markers (Horizontal) */}
+                           <motion.div 
+                             style={{ opacity: opacityEtapa1 }}
+                             className="absolute top-[0%] left-1/2 -translate-x-1/2 z-20"
+                           >
+                             <span className="text-[10px] font-black tracking-widest text-[#325A77] bg-white px-3 py-1 rounded-md shadow-sm border border-[#325A77]/10 whitespace-nowrap">Etapa 1</span>
+                           </motion.div>
+                           <motion.div 
+                             style={{ opacity: opacityEtapa2 }}
+                             className="absolute top-[40%] left-1/2 -translate-x-1/2 z-20"
+                           >
+                             <span className="text-[10px] font-black tracking-widest text-[#325A77] bg-white px-3 py-1 rounded-md shadow-sm border border-[#325A77]/10 whitespace-nowrap">Etapa 2</span>
+                           </motion.div>
+                           <motion.div 
+                             style={{ opacity: opacityEtapa3 }}
+                             className="absolute top-[85%] left-1/2 -translate-x-1/2 z-20"
+                           >
+                             <span className="text-[10px] font-black tracking-widest text-[#325A77] bg-white px-3 py-1 rounded-md shadow-sm border border-[#325A77]/10 whitespace-nowrap">Etapa 3</span>
+                           </motion.div>
                         </div>
 
-                        {/* Stage Brackets */}
-                        <div className="flex px-[5%]">
-                          <div className="flex-[2] flex flex-col items-center px-2">
-                            <div className="w-full h-3 border-x-2 border-b-2 border-emerald/20 rounded-b-sm mb-3" />
-                            <span className="text-[13px] font-black text-emerald/60 tracking-wider">Etapa 1</span>
+                        <div className="flex flex-col w-full max-w-[240px] ml-auto mr-0">
+                          {unit.alcances.map((alcance: any, idx: number) => {
+                            const isLeft = idx % 2 === 0;
+                            return (
+                              <motion.div 
+                                key={idx} 
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: false, margin: "-30% 0px" }}
+                                transition={{ duration: 0.6, ease: "easeOut" }}
+                                className={`flex flex-col items-center w-[130px] text-center relative ${isLeft ? 'self-start' : 'self-end'} ${idx !== 0 ? '-mt-10' : ''}`}
+                              >
+                                
+                                {/* Circle with Rings */}
+                                <div className="relative">
+                                  <div className="absolute -inset-1.5 border-t-2 border-carbon/20 rounded-full" />
+                                  <div className="absolute -inset-1.5 border-b-2 border-carbon/20 rounded-full" />
+                                  
+                                  <div className="w-20 h-20 rounded-full bg-white border-[5px] border-[#4A8F7D] flex items-center justify-center shadow-md relative z-10">
+                                    <alcance.icon size={28} className="text-[#325A77]" />
+                                    
+                                    {/* Connector Arrow */}
+                                    {idx < unit.alcances.length - 1 && (
+                                      <motion.div 
+                                        initial={{ opacity: 0, scale: 0 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        viewport={{ once: false }}
+                                        transition={{ duration: 0.4, delay: 0.1 }}
+                                        className={`absolute -bottom-5 ${isLeft ? '-right-5 rotate-[45deg]' : '-left-5 rotate-[135deg]'} text-[#4A8F7D] z-20`}
+                                      >
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                          <path d="M8 5v14l11-7z" />
+                                        </svg>
+                                      </motion.div>
+                                    )}
+                                  </div>
+                                </div>
+
+                                {/* Label Below */}
+                                <span className="text-[11px] font-bold text-carbon/90 leading-tight block mt-3 px-1">{alcance.title}</span>
+                              </motion.div>
+                            );
+                          })}
+                        </div>
+                      </div>
+
+                      {/* Desktop Layout (Horizontal Timeline) */}
+                      <div className="hidden md:block relative py-12 overflow-x-auto no-scrollbar">
+                        <div className="min-w-[1100px] px-10">
+                          {/* Timeline Container */}
+                          <div className="flex items-start justify-between relative mb-12">
+                            
+                            {unit.alcances.map((alcance: any, idx: number) => (
+                              <div key={idx} className="flex flex-col items-center relative z-10 flex-1">
+                                {/* Label Above (Alternating) */}
+                                <div className={`h-20 flex flex-col items-center justify-end mb-4 text-center ${idx % 2 !== 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                                  <span className="text-[11px] font-bold text-carbon/80 leading-tight max-w-[120px] mb-2">{alcance.title}</span>
+                                  <div className="w-[1px] h-4 bg-[#4A8F7D]/40 relative">
+                                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-[#4A8F7D] rounded-full" />
+                                  </div>
+                                </div>
+
+                                {/* Circle Card Container */}
+                                <div className={`relative transition-all duration-500 ${idx % 2 !== 0 ? '-translate-y-4' : 'translate-y-4'}`}>
+                                  {/* Decorative Curved Lines (Rings) */}
+                                  <div className="absolute -inset-2 border-t-2 border-carbon/20 rounded-full" />
+                                  <div className="absolute -inset-2 border-b-2 border-carbon/20 rounded-full" />
+                                  
+                                  {/* Main Circle */}
+                                  <div className="w-20 h-20 rounded-full bg-white border-[6px] border-[#4A8F7D] flex items-center justify-center shadow-md relative z-10">
+                                    <alcance.icon size={32} className="text-[#325A77]" />
+                                    
+                                    {/* Connector Arrow (Pointing to next card) */}
+                                    {idx < unit.alcances.length - 1 && (
+                                      <div className={`absolute top-1/2 -right-10 -translate-y-1/2 text-[#4A8F7D] z-20 ${idx % 2 !== 0 ? 'rotate-[15deg] translate-y-4' : '-rotate-[15deg] -translate-y-4'}`}>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                          <path d="M8 5v14l11-7z" />
+                                        </svg>
+                                      </div>
+                                    )}
+                                  </div>
+                                </div>
+
+                                {/* Label Below (Alternating) */}
+                                <div className={`mt-4 flex flex-col items-center text-center ${idx % 2 === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                                  <div className="w-[1px] h-4 bg-[#4A8F7D]/40 relative mb-2">
+                                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-[#4A8F7D] rounded-full" />
+                                  </div>
+                                  <span className="text-[11px] font-bold text-carbon/80 leading-tight max-w-[120px] inline-block">{alcance.title}</span>
+                                </div>
+                              </div>
+                            ))}
                           </div>
-                          <div className="flex-[3] flex flex-col items-center px-2">
-                            <div className="w-full h-3 border-x-2 border-b-2 border-emerald/20 rounded-b-sm mb-3" />
-                            <span className="text-[13px] font-black text-emerald/60 tracking-wider">Etapa 2</span>
-                          </div>
-                          <div className="flex-[5] flex flex-col items-center px-2">
-                            <div className="w-full h-3 border-x-2 border-b-2 border-emerald/20 rounded-b-sm mb-3" />
-                            <span className="text-[13px] font-black text-emerald/60 tracking-wider">Etapa 3</span>
+
+                          {/* Stage Brackets */}
+                          <div className="flex px-[5%]">
+                            <div className="flex-[2] flex flex-col items-center px-2">
+                              <div className="w-full h-3 border-x-2 border-b-2 border-emerald/20 rounded-b-sm mb-3" />
+                              <span className="text-[13px] font-black text-emerald/60 tracking-wider">Etapa 1</span>
+                            </div>
+                            <div className="flex-[3] flex flex-col items-center px-2">
+                              <div className="w-full h-3 border-x-2 border-b-2 border-emerald/20 rounded-b-sm mb-3" />
+                              <span className="text-[13px] font-black text-emerald/60 tracking-wider">Etapa 2</span>
+                            </div>
+                            <div className="flex-[5] flex flex-col items-center px-2">
+                              <div className="w-full h-3 border-x-2 border-b-2 border-emerald/20 rounded-b-sm mb-3" />
+                              <span className="text-[13px] font-black text-emerald/60 tracking-wider">Etapa 3</span>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </>
                   ) : (
                     <>
                       <div className={`grid grid-cols-1 sm:grid-cols-2 ${
@@ -475,14 +564,14 @@ export default function Methodology() {
                           <motion.div 
                             key={idx}
                             whileHover={{ y: -10 }}
-                            className={`${colors[idx % colors.length]} rounded-t-full px-4 pt-10 pb-8 flex flex-col items-center text-center shadow-xl hover:shadow-2xl transition-all duration-300 min-h-[300px] justify-between relative`}
+                            className={`${colors[idx % colors.length]} rounded-t-full px-4 pt-8 pb-6 md:pt-10 md:pb-8 flex flex-col items-center text-center shadow-xl hover:shadow-2xl transition-all duration-300 min-h-[220px] md:min-h-[300px] justify-between relative mx-12 sm:mx-0`}
                           >
                             {alcance.stage && (
                               <div className="absolute top-4 left-1/2 -translate-x-1/2 text-[9px] font-black tracking-widest text-white/40 uppercase">
                                 {alcance.stage}
                               </div>
                             )}
-                            <div className="relative w-12 h-12 mb-3">
+                            <div className="relative w-10 h-10 md:w-12 md:h-12 mb-3">
                               <Image 
                                 src="/logo-u.png" 
                                 alt="Logo U" 
@@ -490,10 +579,10 @@ export default function Methodology() {
                                 className="object-contain brightness-0 invert opacity-90"
                               />
                             </div>
-                            <h5 className="text-sm font-bold text-white leading-tight px-2">{alcance.title}</h5>
+                            <h5 className="text-[13px] md:text-sm font-bold text-white leading-tight px-2">{alcance.title}</h5>
                              <div className="h-1 w-8 bg-white/20 my-3" />
                             <p 
-                              className="text-xs text-white/80 leading-relaxed px-4"
+                              className="text-[11px] md:text-xs text-white/80 leading-relaxed px-2 md:px-4"
                               dangerouslySetInnerHTML={{ 
                                 __html: alcance.desc?.replace(/\*\*(.*?)\*\*/g, '<span class="font-black text-white">$1</span>') || '' 
                               }}

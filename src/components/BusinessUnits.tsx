@@ -60,7 +60,7 @@ export default function BusinessUnits() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="mb-20">
-          <span className="text-sm font-normal tracking-[-0.02em] text-ukko-blue mb-6 inline-block border border-ukko-blue/30 px-4 py-1.5 rounded-full bg-ukko-blue/5">
+          <span className="text-sm font-bold tracking-tight text-ukko-blue mb-8 inline-block border border-ukko-blue/20 px-4 py-1.5 rounded-full bg-ukko-blue/5 backdrop-blur-sm">
             Unidades de Negocio
           </span>
           

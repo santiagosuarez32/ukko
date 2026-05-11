@@ -12,7 +12,7 @@ export default function CTA() {
   return (
     <section id="contacto" className="py-32 px-6 bg-white relative overflow-hidden border-t border-carbon/5">
       <div className="max-w-7xl mx-auto relative z-10">
-        <span className="text-sm font-normal tracking-[-0.02em] text-ukko-blue mb-6 inline-block border border-ukko-blue/30 px-4 py-1.5 rounded-full bg-ukko-blue/5">
+        <span className="text-sm font-bold tracking-tight text-ukko-blue mb-8 inline-block border border-ukko-blue/20 px-4 py-1.5 rounded-full bg-ukko-blue/5 backdrop-blur-sm">
           Contacto
         </span>
         
@@ -96,10 +96,10 @@ export default function CTA() {
               <div className="relative z-10">
                 <a 
                   href="mailto:contacto@ukkoenergy.com" 
-                  className="w-full py-4 px-6 rounded-2xl bg-white text-[#2D5A50] font-semibold text-base flex items-center justify-center gap-3 hover:bg-emerald hover:text-white transition-all shadow-xl active:scale-[0.98] group"
+                  className="w-full py-4 px-3 sm:px-6 rounded-2xl bg-white text-[#2D5A50] font-semibold text-[13px] sm:text-base flex items-center justify-center gap-2 sm:gap-3 hover:bg-emerald hover:text-white transition-all shadow-xl active:scale-[0.98] group whitespace-nowrap"
                 >
                   contacto@ukkoenergy.com
-                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  <span className="group-hover:translate-x-1 transition-transform shrink-0">→</span>
                 </a>
               </div>
             </div>

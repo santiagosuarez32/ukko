@@ -44,7 +44,7 @@ export default function AboutUs() {
     <section id="about-us" className="about-section py-32 px-6 bg-white relative overflow-hidden">
       {/* Background Image Accent */}
       <div 
-        className="absolute top-0 right-0 w-1/3 h-full z-0 opacity-15 pointer-events-none"
+        className="absolute top-0 right-0 w-1/3 h-full z-0 opacity-15 pointer-events-none hidden lg:block"
         style={{ 
           maskImage: 'linear-gradient(to bottom, black 0%, rgba(0,0,0,0.5) 50%, transparent 100%)',
           WebkitMaskImage: 'linear-gradient(to bottom, black 0%, rgba(0,0,0,0.5) 50%, transparent 100%)'
@@ -62,7 +62,7 @@ export default function AboutUs() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header Section */}
         <div className="about-content mb-20">
-          <span className="text-sm font-normal tracking-[-0.02em] text-ukko-blue mb-6 inline-block border border-ukko-blue/30 px-4 py-1.5 rounded-full bg-ukko-blue/5">
+          <span className="text-sm font-bold tracking-tight text-ukko-blue mb-8 inline-block border border-ukko-blue/20 px-4 py-1.5 rounded-full bg-ukko-blue/5 backdrop-blur-sm">
             Quiénes Somos
           </span>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
