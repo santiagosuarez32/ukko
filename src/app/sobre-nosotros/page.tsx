@@ -46,7 +46,7 @@ export default function SobreNosotros() {
       <Navbar />
       
       {/* Hero Section (Matching Image Layout) */}
-      <section className="relative pt-40 pb-20 px-6 md:px-10 overflow-hidden bg-white">
+      <section className="relative pt-56 md:pt-40 pb-20 px-6 md:px-10 overflow-hidden bg-white">
         <div className="max-w-7xl mx-auto">
           {/* Left Aligned Top Title (Matching Brand Style) */}
           <div className="text-left mb-16 max-w-4xl">

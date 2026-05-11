@@ -8,7 +8,7 @@ export default function Hero({ title }: HeroProps) {
   const words = title.split(" ");
 
   return (
-    <section className="relative min-h-[90vh] md:min-h-screen flex flex-col items-center justify-center text-center px-6 pt-28 md:pt-40 pb-20 overflow-hidden">
+    <section className="relative min-h-[90vh] md:min-h-screen flex flex-col items-center justify-center text-center px-6 pt-36 md:pt-40 pb-20 overflow-hidden">
       {/* Background with smoother non-linear easing mask */}
       <div 
         className="absolute inset-0 z-0" 
@@ -31,7 +31,7 @@ export default function Hero({ title }: HeroProps) {
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60"></div>
       </div>
 
-      <div className="relative z-10 w-full max-w-5xl flex flex-col items-center mb-10 -translate-y-10 md:-translate-y-4">
+      <div className="relative z-10 w-full max-w-5xl flex flex-col items-center mb-10 -translate-y-4 md:-translate-y-4">
         {/* Subheadline */}
         <span className="hero-subheadline text-sm font-normal tracking-[-0.02em] text-white mb-4 inline-block border border-white px-3 py-1.5 rounded-full bg-transparent z-20 relative">
           Liderando la transición energética
