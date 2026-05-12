@@ -83,7 +83,7 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(to right, #0b6fc6, #70c49a);
+  background: linear-gradient(to left, #0b6fc6, #70c49a);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
@@ -97,23 +97,38 @@ body {
   color: transparent;
   -webkit-text-fill-color: transparent;
   display: block;
+  line-height: 0.9;
+  padding-right: 0.15em;
   mask-image: linear-gradient(
     to bottom,
     black 0%,
-    black 15%,
-    rgba(0, 0, 0, 0.85) 30%,
-    rgba(0, 0, 0, 0.5) 50%,
-    rgba(0, 0, 0, 0.2) 70%,
-    transparent 95%
+    black 70%,
+    rgba(0, 0, 0, 0.3) 90%,
+    transparent 100%
   );
   -webkit-mask-image: linear-gradient(
     to bottom,
     black 0%,
-    black 15%,
-    rgba(0, 0, 0, 0.85) 30%,
-    rgba(0, 0, 0, 0.5) 50%,
-    rgba(0, 0, 0, 0.2) 70%,
-    transparent 95%
+    black 70%,
+    rgba(0, 0, 0, 0.3) 90%,
+    transparent 100%
+  );
+}
+
+.number-fade {
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 70%,
+    rgba(0, 0, 0, 0.3) 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 70%,
+    rgba(0, 0, 0, 0.3) 90%,
+    transparent 100%
   );
 }
 

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import { FaYoutube, FaLinkedinIn } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -24,7 +25,7 @@ export default function Navbar() {
 
   const navLinks = [
     { label: "Inicio", href: "/" },
-    { label: "Nosotros", href: "/sobre-nosotros" },
+    { label: "Nosotros", href: "/#about-us" },
     { label: "Unidades", href: "/#unidades" },
     { label: "Metodología", href: "/#metodologia" },
     { label: "Contáctanos", href: "/#contacto" },
@@ -37,18 +38,30 @@ export default function Navbar() {
     if (href.startsWith("/#") && pathname === "/") {
       e.preventDefault();
       const id = href.split("#")[1];
-      const element = document.getElementById(id);
-      if (element) {
-        const y = element.getBoundingClientRect().top + window.scrollY - 80;
-        window.scrollTo({ top: y, behavior: 'smooth' });
+      const target = `#${id}`;
+      
+      if ((window as any).lenis) {
+        (window as any).lenis.scrollTo(target, {
+          offset: -80,
+          duration: 1.5,
+        });
+      } else {
+        const element = document.getElementById(id);
+        if (element) {
+          const y = element.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
       }
     } else if (href === "/") {
       if (pathname === "/") {
         e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if ((window as any).lenis) {
+          (window as any).lenis.scrollTo(0, { duration: 1.5 });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
       }
     }
-    // Otherwise let Next.js Link handle it
   };
 
   return (
@@ -70,8 +83,8 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* Links container - Center (Desktop) */}
-          <div className="hidden md:flex gap-6 items-center text-lg font-medium text-white/90">
+          {/* Links container - Center (Nudged Right more) */}
+          <div className="hidden md:flex flex-1 justify-center pl-32 gap-10 items-center text-lg font-medium text-white/90">
             {navLinks.slice(0, 4).map((link) => (
               <Link 
                 key={link.label}
@@ -85,7 +98,27 @@ export default function Navbar() {
           </div>
 
           {/* Button container - Right (Desktop) */}
-          <div className="hidden md:flex justify-end">
+          <div className="hidden md:flex justify-end items-center gap-5">
+            <div className="flex items-center gap-3">
+              <a 
+                href="https://www.linkedin.com/company/ukko-energy-solutions" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 hover:bg-white hover:text-ukko-blue hover:border-white transition-all text-white"
+                title="LinkedIn"
+              >
+                <FaLinkedinIn size={18} />
+              </a>
+              <a 
+                href="https://www.youtube.com/@ukkoenergy" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 hover:bg-white hover:text-ukko-blue hover:border-white transition-all text-white"
+                title="YouTube"
+              >
+                <FaYoutube size={18} />
+              </a>
+            </div>
             <Link 
               href="/#contacto"
               onClick={(e) => handleNavClick(e, "/#contacto")}
@@ -137,6 +170,31 @@ export default function Navbar() {
                   </Link>
                 </motion.div>
               ))}
+
+              {/* Mobile Social Icons */}
+              <motion.div 
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.8 }}
+                className="flex items-center gap-6 mt-4"
+              >
+                <a 
+                  href="https://www.linkedin.com/company/ukko-energy-solutions" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-white hover:text-emerald transition-colors"
+                >
+                  <FaLinkedinIn size={28} />
+                </a>
+                <a 
+                  href="https://www.youtube.com/@ukkoenergy" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-white hover:text-emerald transition-colors"
+                >
+                  <FaYoutube size={28} />
+                </a>
+              </motion.div>
             </nav>
 
             {/* Decoration */}

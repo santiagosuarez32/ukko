@@ -2,8 +2,31 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Ukko Energy | Impulsando el Futuro",
-  description: "Liderando la transición hacia soluciones de energía sostenible con innovación y tecnología.",
+  title: {
+    default: "Ukko Energy | Consultoría en Transición Energética y Sostenibilidad",
+    template: "%s | Ukko Energy"
+  },
+  description: "Líderes en soluciones de eficiencia energética, gestión de emisiones y transición hacia un futuro sostenible. Desarrollamos proyectos de energía renovable y descarbonización.",
+  keywords: ["energía renovable", "eficiencia energética", "huella de carbono", "sostenibilidad", "transición energética", "consultoría ambiental", "descarbonización", "ISO 14064", "ISO 50001"],
+  authors: [{ name: "Ukko Energy" }],
+  creator: "Ukko Energy",
+  openGraph: {
+    type: "website",
+    locale: "es_AR",
+    url: "https://ukkoenergy.com",
+    title: "Ukko Energy | Impulsando el Futuro Energético Sostenible",
+    description: "Soluciones integrales de energía y sostenibilidad para empresas líderes.",
+    siteName: "Ukko Energy",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ukko Energy | Liderando la Transición Energética",
+    description: "Soluciones inteligentes para un mañana más limpio y eficiente.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  }
 };
 
 import SmoothScroll from "@/components/SmoothScroll";

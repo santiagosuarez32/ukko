@@ -49,6 +49,23 @@ export default function BusinessUnits() {
   const isInView = useInView(sectionRef, { once: true, margin: "-10% 0px" });
   const [triggerUnderline, setTriggerUnderline] = useState(false);
 
+  const scrollToUnit = (id: string) => {
+    const paddedId = id.padStart(2, '0');
+    const target = `#unit-${paddedId}`;
+    
+    if ((window as any).lenis) {
+      (window as any).lenis.scrollTo(target, {
+        offset: -120,
+        duration: 2,
+      });
+    } else {
+      const element = document.querySelector(target);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <section ref={sectionRef} id="business-units" className="pt-4 pb-32 px-6 bg-white text-carbon overflow-hidden relative">
       {/* Decorative background element */}
@@ -60,7 +77,7 @@ export default function BusinessUnits() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="mb-20">
-          <span className="text-sm font-bold tracking-tight text-ukko-blue mb-8 inline-block border border-ukko-blue/20 px-4 py-1.5 rounded-full bg-ukko-blue/5 backdrop-blur-sm">
+          <span className="text-base md:text-lg font-bold tracking-tight text-ukko-blue mb-8 inline-block border border-ukko-blue/20 px-6 py-2 rounded-full bg-ukko-blue/5 backdrop-blur-sm">
             Unidades de Negocio
           </span>
           
@@ -121,18 +138,19 @@ export default function BusinessUnits() {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.1 * index + 0.6 }}
-              className="relative flex flex-col h-full"
+              onClick={() => scrollToUnit(unit.id)}
+              className="relative flex flex-col h-full cursor-pointer group"
             >
               {/* Number Label - Outside the card for zero interference */}
-              <div className="absolute -top-24 left-0 text-8xl font-bold ukko-gradient tracking-tighter z-20 pointer-events-none p-10">
-                {unit.id}
+              <div className="absolute -top-24 -left-4 text-8xl font-bold ukko-gradient tracking-tight z-20 pointer-events-none px-4 py-10 opacity-30 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                {unit.id.padStart(2, '0')}
               </div>
 
               {/* Card Container */}
-              <div className="bg-white border border-carbon/5 rounded-[32px] p-10 flex flex-col h-full relative">
+              <div className="bg-white border border-carbon/5 rounded-[32px] p-10 flex flex-col h-full relative group-hover:border-ukko-blue/20 group-hover:shadow-xl transition-all duration-300">
                 {/* Content */}
                 <div className="relative z-10 flex flex-col h-full mt-4">
-                  <h3 className="text-2xl font-bold mb-5 leading-tight tracking-tight transition-colors duration-300">
+                  <h3 className="text-2xl font-bold mb-5 leading-tight tracking-tight transition-colors duration-300 group-hover:text-ukko-blue">
                     {unit.title}
                   </h3>
                 

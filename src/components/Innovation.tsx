@@ -5,7 +5,9 @@ export default function Innovation() {
     <section className="innovation-section py-32 px-10 overflow-hidden bg-white">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-24">
         <div className="w-full lg:w-1/2 innovation-content">
-          <span className="text-xs font-black uppercase tracking-[0.3em] text-teal mb-6 block">Nuestro Compromiso</span>
+          <span className="text-base md:text-lg font-bold tracking-tight text-ukko-blue mb-8 inline-block border border-ukko-blue/20 px-6 py-2 rounded-full bg-ukko-blue/5 backdrop-blur-sm">
+            Nuestro Compromiso
+          </span>
           <h2 className="text-5xl md:text-7xl font-semibold mb-8 leading-tight tracking-tighter text-ukko-blue">INNOVACIÓN <br/>PARA EL PLANETA</h2>
           <p className="text-carbon/70 text-xl mb-10 leading-relaxed font-medium">
             En Ukko Energy, creemos que la tecnología es la clave para desbloquear un futuro neutro en carbono. Nuestros equipos de investigación y desarrollo superan constantemente los límites del almacenamiento de energía y la eficiencia renovable.

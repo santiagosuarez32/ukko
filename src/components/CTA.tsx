@@ -12,7 +12,7 @@ export default function CTA({ className }: { className?: string }) {
   return (
     <section id="contacto" className={`py-32 px-6 bg-white relative overflow-hidden border-t border-carbon/5 ${className}`}>
       <div className="max-w-7xl mx-auto relative z-10">
-        <span className="text-sm font-bold tracking-tight text-ukko-blue mb-8 inline-block border border-ukko-blue/20 px-4 py-1.5 rounded-full bg-ukko-blue/5 backdrop-blur-sm">
+        <span className="text-base md:text-lg font-bold tracking-tight text-ukko-blue mb-8 inline-block border border-ukko-blue/20 px-6 py-2 rounded-full bg-ukko-blue/5 backdrop-blur-sm">
           Contacto
         </span>
         

@@ -66,7 +66,7 @@ export default function AboutUs() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header Section */}
         <div className="about-content mb-20">
-          <span className="text-sm font-bold tracking-tight text-ukko-blue mb-8 inline-block border border-ukko-blue/20 px-4 py-1.5 rounded-full bg-ukko-blue/5 backdrop-blur-sm">
+          <span className="text-base md:text-lg font-bold tracking-tight text-ukko-blue mb-8 inline-block border border-ukko-blue/20 px-6 py-2 rounded-full bg-ukko-blue/5 backdrop-blur-sm">
             Quiénes Somos
           </span>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
@@ -180,18 +180,11 @@ export default function AboutUs() {
 
         {/* Valor Diferencial Section (New Layout) */}
         <div className="mt-32">
-          {/* Header Section (2-column layout) */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 items-end">
-            <div className="lg:w-full">
-              <h3 className="text-4xl md:text-5xl font-semibold text-carbon leading-[1.1] tracking-tight">
-                Valor diferencial <br /> de nuestra marca
-              </h3>
-            </div>
-            <div className="lg:w-full">
-              <p className="text-base md:text-[18px] text-carbon/70 font-medium leading-relaxed tracking-tight">
-                Somos una compañía ágil con <span className="font-bold text-carbon">alta capacidad técnica y analítica</span>, enfocada en desarrollar <span className="font-bold text-carbon">soluciones inteligentes</span>. Aplicamos nuestra experiencia para crear valor en cada proyecto, materializando resultados <span className="font-bold text-carbon">confiables, innovadores y sustentables</span> vinculados a la eficiencia energética y resiliencia climática.
-              </p>
-            </div>
+          {/* Header Section */}
+          <div className="mb-12">
+            <h3 className="text-4xl md:text-5xl font-semibold text-carbon leading-[1.1] tracking-tight">
+              Valor diferencial <br /> de nuestra marca
+            </h3>
           </div>
 
           {/* Main Card Content */}
@@ -199,7 +192,7 @@ export default function AboutUs() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="relative h-[450px] md:h-[500px] rounded-[40px] shadow-2xl border border-white-gray/10 overflow-hidden flex items-center justify-end p-8 md:p-14"
+            className="relative h-auto lg:h-[500px] rounded-[40px] border border-white-gray/10 overflow-hidden flex flex-col lg:flex-row items-stretch p-0"
           >
             {/* Background Image Container */}
             <div className="absolute inset-0 z-0">
@@ -214,9 +207,16 @@ export default function AboutUs() {
               <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" />
             </div>
 
-            {/* Actions Sub-card (Floating Glassmorphism) */}
-            <div className="w-full lg:w-[320px] relative z-10">
-              <div className="bg-white/10 backdrop-blur-md p-7 rounded-[32px] shadow-2xl border border-white/20 flex flex-col gap-5 relative overflow-hidden group">
+            {/* Differential Value Card (White background) - Left Side */}
+            <div className="relative z-10 w-full lg:w-[500px] bg-white p-8 md:p-14 flex flex-col justify-center">
+               <p className="text-base md:text-lg text-carbon/70 font-medium leading-relaxed tracking-tight">
+                 Somos una compañía ágil con <span className="font-bold text-carbon">alta capacidad técnica y analítica</span>, enfocada en desarrollar <span className="font-bold text-carbon">soluciones inteligentes</span>. Aplicamos nuestra experiencia para crear valor en cada proyecto, materializando resultados <span className="font-bold text-carbon">confiables, innovadores y sustentables</span> vinculados a la eficiencia energética y resiliencia climática.
+               </p>
+            </div>
+
+            {/* Actions Sub-card (Floating Glassmorphism) - Right Side */}
+            <div className="relative z-10 flex-1 flex items-center justify-center lg:justify-end p-8 md:px-14 md:py-14">
+              <div className="w-full max-w-[280px] bg-white/10 backdrop-blur-md p-6 rounded-[32px] shadow-2xl border border-white/20 flex flex-col gap-5 relative overflow-hidden group">
                 {/* Decorative Internal Glow */}
                 <div className="absolute -top-10 -right-10 w-24 h-24 bg-ukko-blue/10 blur-3xl rounded-full" />
                 

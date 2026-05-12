@@ -62,11 +62,11 @@ const methodologyData = [
     bgImage: "/arboles.webp",
     alcances: [
       { title: "Diagnóstico", desc: "**Análisis y caracterización** de procesos y actividades" },
-      { title: "Identificación y requisitos", desc: "**Identificación de riesgos** climáticos y requisitos" },
-      { title: "Evaluación", desc: "**Evaluación y revisión** del plan de continuidad" },
-      { title: "Nivel de vulnerabilidad", desc: "**Vulnerabilidad climática** de los activos y del negocio" },
-      { title: "Acciones", desc: "**Análisis técnico y económico** de mejoras" },
-      { title: "Plan de Resiliencia Climática", desc: "**Estrategia de resiliencia** de corto, mediano y largo plazo" }
+      { title: "Identificación y requisitos", desc: "**Identificación de riesgos** climáticos y requisitos actuales internos y externos frente a partes interesadas" },
+      { title: "Evaluación", desc: "**Evaluación y revisión** del plan de continuidad de negocios, respuesta a emergencias y planes de recuperación existentes" },
+      { title: "Nivel de vulnerabilidad", desc: "**Determinación de la vulnerabilidad** climática de los activos y del negocio de la empresa" },
+      { title: "Acciones", desc: "**Análisis técnico y económico** de alternativas de cambios y mejoras para fortalecer la resiliencia climática" },
+      { title: "Plan de Resiliencia Climática", desc: "**Elaboración e implementación** de una estrategia de resiliencia climática de corto, mediano y largo plazo" }
     ],
     planAccion: []
   },
@@ -207,7 +207,7 @@ export default function Methodology() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-left mb-24 max-w-4xl">
-          <span className="text-sm font-bold tracking-tight text-ukko-blue mb-8 inline-block border border-ukko-blue/20 px-4 py-1.5 rounded-full bg-ukko-blue/5 backdrop-blur-sm">
+          <span className="text-base md:text-lg font-bold tracking-tight text-ukko-blue mb-8 inline-block border border-ukko-blue/20 px-6 py-2 rounded-full bg-ukko-blue/5 backdrop-blur-sm">
             Metodología
           </span>
           
@@ -256,11 +256,12 @@ export default function Methodology() {
           {methodologyData.map((unit, unitIdx) => (
             <motion.div 
               key={unit.id}
+              id={`unit-${unit.id}`}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="space-y-24"
+              className="space-y-24 scroll-mt-32"
             >
             {(unit.id === "04" || unit.id === "05") ? (
               <div className="space-y-20">
@@ -390,6 +391,61 @@ export default function Methodology() {
                   </div>
                 </div>
 
+                {/* Plan de Acción Section (Cuadro) - Rendered first for Unit 03 */}
+                {unit.id === "03" && unit.planAccion.length > 0 && (
+                  <div className="relative mb-24">
+                    <div className="mb-20">
+                      <AnimatedText 
+                        trigger={true}
+                        underlineClassName="text-emerald/60"
+                        className="inline-block"
+                      >
+                        <h4 className="text-2xl font-bold text-carbon">
+                          Servicios especializados para la exportación de residuos peligrosos
+                        </h4>
+                      </AnimatedText>
+                    </div>
+                  
+                    {/* SVG Gradient Defs for Icons */}
+                    <svg width="0" height="0" className="absolute">
+                      <defs>
+                        <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#111111" />
+                          <stop offset="100%" stopColor="#444444" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+
+                    <div className="bg-[#25524B] rounded-[32px] p-10 md:p-14 relative overflow-hidden group z-10">
+                      {/* Subtle U Logo Accent */}
+                      <div className="absolute bottom-6 right-8 w-12 h-12 opacity-80 pointer-events-none">
+                        <Image 
+                          src="/logo-u.webp" 
+                          alt="Ukko U" 
+                          fill 
+                          className="object-contain brightness-0 invert"
+                        />
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
+                        {unit.planAccion.map((step, idx) => (
+                          <div key={idx} className="flex flex-col gap-4">
+                            <h5 className="text-lg md:text-[19px] font-bold text-white leading-tight tracking-tight">
+                              {step.title}
+                            </h5>
+                            <p 
+                              className="text-base md:text-[16px] text-white/80 font-medium leading-relaxed tracking-tight"
+                              dangerouslySetInnerHTML={{ 
+                                __html: step.desc.replace(/\*\*(.*?)\*\*/g, '<span class="font-bold text-white">$1</span>') 
+                              }}
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 {/* Alcances Section */}
                 <div>
                   <div className="mb-10">
@@ -398,10 +454,15 @@ export default function Methodology() {
                       underlineClassName="text-emerald/60"
                       className="inline-block"
                     >
-                      <h4 className="text-2xl font-bold text-carbon">
+                      <h4 className="text-2xl md:text-3xl font-bold text-carbon">
                         {unit.id === "02" ? "Plan de acción" : unit.id === "03" ? "Proceso operativo en 3 etapas" : "Alcances"}
                       </h4>
                     </AnimatedText>
+                    {unit.id === "03" && (
+                      <p className="text-lg md:text-xl text-carbon/60 font-medium tracking-tight mt-4 max-w-3xl">
+                        Desarrollo integral de la gestión, Consolidación, logística local e internacional
+                      </p>
+                    )}
                   </div>
                   {unit.id === "03" ? (
                     <>
@@ -545,6 +606,20 @@ export default function Methodology() {
                           </div>
                         </div>
                       </div>
+
+                      {/* Full-width Image Card for Unit 03 (Standalone) */}
+                      <div className="relative h-[300px] w-screen left-1/2 -translate-x-1/2 overflow-hidden -mt-20 md:-mt-40 z-0 [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent),linear-gradient(to_right,transparent,black_30%,black_70%,transparent)] [mask-composite:intersect] opacity-60">
+                        <LiquidReveal 
+                          src={unit.bgImage || ""} 
+                          alt={unit.title}
+                          fill
+                          containerClassName="w-full h-full"
+                          className="object-cover"
+                          unoptimized
+                        />
+                        {/* Subtle Overlay */}
+                        <div className="absolute inset-0 bg-black/5" />
+                      </div>
                     </>
                   ) : (
                     <>
@@ -562,11 +637,17 @@ export default function Methodology() {
                           "bg-[#81B1A0]", // Mint
                           "bg-[#1D2B33]", // Dark Carbon
                         ];
+                        
+                        let cardColor = colors[idx % colors.length];
+                        if (unit.id === "02") {
+                          cardColor = idx === unit.alcances.length - 1 ? "bg-[#325A77]" : "bg-[#6EA593]";
+                        }
+
                         return (
                           <motion.div 
                             key={idx}
                             whileHover={{ y: -10 }}
-                            className={`${colors[idx % colors.length]} rounded-t-full px-4 pt-8 pb-6 md:pt-10 md:pb-8 flex flex-col items-center text-center shadow-xl hover:shadow-2xl transition-all duration-300 min-h-[220px] md:min-h-[300px] justify-between relative mx-12 sm:mx-0`}
+                            className={`${cardColor} rounded-t-full px-4 pt-12 pb-8 md:pt-16 md:pb-10 flex flex-col items-center text-center shadow-xl hover:shadow-2xl transition-all duration-300 min-h-[350px] md:min-h-[420px] justify-start relative mx-12 sm:mx-0`}
                           >
                             {alcance.stage && (
                               <div className="absolute top-4 left-1/2 -translate-x-1/2 text-[9px] font-black tracking-widest text-white/40 uppercase">
@@ -581,10 +662,10 @@ export default function Methodology() {
                                 className="object-contain brightness-0 invert opacity-90"
                               />
                             </div>
-                            <h5 className="text-[13px] md:text-sm font-bold text-white leading-tight px-2">{alcance.title}</h5>
-                             <div className="h-1 w-8 bg-white/20 my-3" />
+                            <h5 className="text-[18px] md:text-xl font-bold text-white leading-tight px-2 mb-4">{alcance.title}</h5>
+                             <div className="h-1 w-12 bg-white/20 mb-6" />
                             <p 
-                              className="text-[11px] md:text-xs text-white/80 leading-relaxed px-2 md:px-4"
+                              className="text-[15px] md:text-base text-white/80 leading-relaxed px-2 md:px-4"
                               dangerouslySetInnerHTML={{ 
                                 __html: alcance.desc?.replace(/\*\*(.*?)\*\*/g, '<span class="font-black text-white">$1</span>') || '' 
                               }}
@@ -613,8 +694,8 @@ export default function Methodology() {
                 )}
                 </div>
 
-                {/* Plan de Acción Section */}
-                {unit.planAccion.length > 0 && (
+                {/* Plan de Acción Section - Rendered second for non-Unit 03 */}
+                {unit.id !== "03" && unit.planAccion.length > 0 && (
                   <div className="relative">
                     <div className="mb-20">
                       <AnimatedText 
@@ -623,7 +704,7 @@ export default function Methodology() {
                         className="inline-block"
                       >
                         <h4 className="text-2xl font-bold text-carbon">
-                          {unit.id === "03" ? "Servicios especializados" : "Plan de acción"}
+                          Plan de acción
                         </h4>
                       </AnimatedText>
                     </div>
@@ -640,113 +721,59 @@ export default function Methodology() {
 
                   {/* Desktop Connectors - Removed for a cleaner look */}
 
-                  {unit.id === "03" ? (
-                    <>
-                      <div className="bg-[#25524B] rounded-[32px] p-10 md:p-14 relative overflow-hidden group z-10">
-                      {/* Subtle U Logo Accent */}
-                      <div className="absolute bottom-6 right-8 w-12 h-12 opacity-80 pointer-events-none">
-                        <Image 
-                          src="/logo-u.webp" 
-                          alt="Ukko U" 
-                          fill 
-                          className="object-contain brightness-0 invert"
-                        />
-                      </div>
+                    <div className={`grid grid-cols-1 md:grid-cols-3 lg:grid-cols-${unit.planAccion.length} gap-x-6 gap-y-16 relative z-10`}>
+                      {unit.planAccion.map((step, idx) => (
+                      <div 
+                        key={idx} 
+                        className="relative flex flex-col group"
+                      >
+                        {/* Card Content */}
+                        <div className="pt-16 px-5 pb-10 bg-white border border-carbon/5 rounded-[32px] h-full flex flex-col items-center relative">
+                          {/* Step Number - Top Left */}
+                          <span className="absolute -top-8 -left-2 text-5xl font-black text-carbon number-fade tracking-tight z-20 pointer-events-none opacity-30 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                            {step.id}
+                          </span>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
-                        {unit.planAccion.map((step, idx) => (
-                          <div key={idx} className="flex flex-col gap-4">
-                            <h5 className="text-lg md:text-[19px] font-bold text-white leading-tight tracking-tight">
-                              {step.title}
-                            </h5>
-                            <p 
-                              className="text-base md:text-[16px] text-white/80 font-medium leading-relaxed tracking-tight"
-                              dangerouslySetInnerHTML={{ 
-                                __html: step.desc.replace(/\*\*(.*?)\*\*/g, '<span class="font-bold text-white">$1</span>') 
-                              }}
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Full-width Image Card for Unit 03 (Standalone) */}
-                      <div className="relative h-[300px] w-screen left-1/2 -translate-x-1/2 overflow-hidden -mt-40 z-0 [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent),linear-gradient(to_right,transparent,black_30%,black_70%,transparent)] [mask-composite:intersect] opacity-60">
-                        <LiquidReveal 
-                          src={unit.bgImage || ""} 
-                          alt={unit.title}
-                          fill
-                          containerClassName="w-full h-full"
-                          className="object-cover"
-                          unoptimized
-                        />
-                        {/* Subtle Overlay */}
-                        <div className="absolute inset-0 bg-black/5" />
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div className={`grid grid-cols-1 md:grid-cols-3 lg:grid-cols-${unit.planAccion.length} gap-x-6 gap-y-16 relative z-10`}>
-                        {unit.planAccion.map((step, idx) => (
-                        <div 
-                          key={idx} 
-                          className="relative flex flex-col group"
-                        >
-                          {/* Card Content */}
-                          <div className="pt-16 px-5 pb-10 bg-white border border-carbon/5 rounded-[32px] h-full flex flex-col items-center relative">
-                            {/* Step Number - Top Left with Easing Mask */}
-                            <span 
-                              className="absolute -top-6 -left-2 text-5xl font-black text-carbon opacity-30 z-20 pointer-events-none"
-                              style={{
-                                maskImage: 'linear-gradient(to right, black 40%, transparent 100%)',
-                                WebkitMaskImage: 'linear-gradient(to right, black 40%, transparent 100%)'
-                              }}
-                            >
-                              {step.id}
-                            </span>
-
-                            {/* Large Icon - Top Center Border */}
-                            <div className="absolute -top-10 left-1/2 -translate-x-1/2 z-20" style={{ color: 'url(#icon-gradient)' }}>
-                              <step.icon size={64} strokeWidth={1} fill="url(#icon-gradient)" />
-                            </div>
-
-                            <h5 className="text-[15px] font-bold text-carbon mb-3 text-center leading-tight">{step.title}</h5>
-                            <p 
-                              className="text-[11px] text-carbon/40 leading-relaxed font-medium transition-colors text-center"
-                              dangerouslySetInnerHTML={{ 
-                                __html: step.desc.replace(/\*\*(.*?)\*\*/g, '<span class="font-bold text-carbon/80">$1</span>') 
-                              }}
-                            />
+                          {/* Large Icon - Top Center Border */}
+                          <div className="absolute -top-10 left-1/2 -translate-x-1/2 z-20" style={{ color: 'url(#icon-gradient)' }}>
+                            <step.icon size={64} strokeWidth={1} fill="url(#icon-gradient)" />
                           </div>
 
-                          {/* Connector Arrow (Desktop) */}
-                          {idx < unit.planAccion.length - 1 && (
-                            <div className="hidden lg:block absolute top-1/2 -right-3 -translate-y-1/2 text-carbon/5">
-                              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                              </svg>
-                            </div>
-                          )}
+                          <h5 className="text-[18px] md:text-xl font-bold text-carbon mb-3 text-center leading-tight">{step.title}</h5>
+                          <p 
+                            className="text-[15px] md:text-base text-carbon/40 leading-relaxed font-medium transition-colors text-center"
+                            dangerouslySetInnerHTML={{ 
+                              __html: step.desc.replace(/\*\*(.*?)\*\*/g, '<span class="font-bold text-carbon/80">$1</span>') 
+                            }}
+                          />
                         </div>
-                      ))}
-                    </div>
 
-                    {/* Full-width Image Card for Unit 01 (Standalone) */}
-                    {unit.id === "01" && (
-                      <div className="relative h-[300px] w-screen left-1/2 -translate-x-1/2 overflow-hidden z-0 [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent),linear-gradient(to_right,transparent,black_30%,black_70%,transparent)] [mask-composite:intersect] opacity-60">
-                        <LiquidReveal 
-                          src={unit.bgImage || ""} 
-                          alt={unit.title}
-                          fill
-                          containerClassName="w-full h-full"
-                          className="object-cover"
-                          unoptimized
-                        />
-                        {/* Subtle Overlay */}
-                        <div className="absolute inset-0 bg-black/5" />
+                        {/* Connector Arrow (Desktop) */}
+                        {idx < unit.planAccion.length - 1 && (
+                          <div className="hidden lg:block absolute top-1/2 -right-3 -translate-y-1/2 text-carbon/5">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          </div>
+                        )}
                       </div>
-                    )}
-                  </>
+                    ))}
+                  </div>
+
+                  {/* Full-width Image Card for Unit 01 (Standalone) */}
+                  {unit.id === "01" && (
+                    <div className="relative h-[300px] w-screen left-1/2 -translate-x-1/2 overflow-hidden z-0 [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent),linear-gradient(to_right,transparent,black_30%,black_70%,transparent)] [mask-composite:intersect] opacity-60">
+                      <LiquidReveal 
+                        src={unit.bgImage || ""} 
+                        alt={unit.title}
+                        fill
+                        containerClassName="w-full h-full"
+                        className="object-cover"
+                        unoptimized
+                      />
+                      {/* Subtle Overlay */}
+                      <div className="absolute inset-0 bg-black/5" />
+                    </div>
                   )}
                 </div>
                 )}

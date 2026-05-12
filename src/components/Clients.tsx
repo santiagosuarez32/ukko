@@ -29,7 +29,7 @@ export default function Clients() {
       <div className="max-w-7xl mx-auto px-6 mb-24">
         <div className="text-center">
           <div className="flex flex-col items-center mb-12">
-            <span className="text-sm font-bold tracking-tight text-ukko-blue mb-8 inline-block border border-ukko-blue/20 px-4 py-1.5 rounded-full bg-ukko-blue/5 backdrop-blur-sm">
+            <span className="text-base md:text-lg font-bold tracking-tight text-ukko-blue mb-8 inline-block border border-ukko-blue/20 px-6 py-2 rounded-full bg-ukko-blue/5 backdrop-blur-sm">
               Clientes
             </span>
             

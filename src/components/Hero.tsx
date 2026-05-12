@@ -1,4 +1,5 @@
 import { LiquidReveal } from "@/components/ui/LiquidReveal";
+import { FiDownload } from "react-icons/fi";
 
 interface HeroProps {
   title: string;
@@ -56,11 +57,18 @@ export default function Hero({ title }: HeroProps) {
         </p>
 
         {/* 2 CTAs */}
-        <div className="hero-ctas flex flex-row w-full max-w-[380px] md:max-w-none justify-center gap-3 md:gap-6 mb-6 px-2 md:px-0">
-          <button className="ukko-button flex-1 md:flex-none md:w-56 py-3 md:py-3.5 rounded-full font-medium tracking-normal text-[13px] md:text-[18px] leading-[1.2] shadow-xl">
-            Agendar Reunión
-          </button>
-          <button className="flex-1 md:flex-none md:w-56 py-3 md:py-3.5 rounded-full font-medium tracking-normal text-[13px] md:text-[18px] leading-[1.2] border border-white/50 text-white hover:bg-white hover:text-ukko-blue transition-all">
+        <div className="hero-ctas flex flex-row w-full max-w-[440px] md:max-w-none justify-center gap-3 md:gap-6 mb-6 px-4 md:px-0">
+          <a 
+            href="/pdfs/UKKO ENERGY - BROCHURE.pdf" 
+            download
+            className="ukko-button flex-1 md:flex-none md:w-72 px-5 py-3 md:py-3.5 rounded-full font-medium tracking-normal text-[12px] sm:text-[13px] md:text-[18px] leading-[1.2] shadow-xl flex items-center justify-center gap-2 md:gap-3 group cursor-pointer whitespace-nowrap"
+          >
+            Descargar Brochure <FiDownload className="group-hover:translate-y-0.5 transition-transform" size={18} />
+          </a>
+          <button 
+            onClick={() => (window as any).lenis?.scrollTo('#unidades', { duration: 2 })}
+            className="flex-1 md:flex-none md:w-56 py-3 md:py-3.5 rounded-full font-medium tracking-normal text-[13px] md:text-[18px] leading-[1.2] border border-white/50 text-white hover:bg-white hover:text-ukko-blue transition-all cursor-pointer"
+          >
             Conocer Servicios
           </button>
         </div>
@@ -72,12 +80,12 @@ export default function Hero({ title }: HeroProps) {
             <div className="text-[10px] sm:text-xs md:text-[18px] font-medium tracking-normal text-white leading-[1.2] text-center">Años de Experiencia</div>
           </div>
           <div className="stat-item flex flex-col items-center flex-1 md:flex-none -translate-y-1 md:-translate-y-0">
-            <div className="text-2xl sm:text-3xl md:text-4xl font-black gradient-text mb-1 tracking-[-0.02em]"><span id="counter-business">0</span></div>
-            <div className="text-[10px] sm:text-xs md:text-[18px] font-medium tracking-normal text-white leading-[1.2] text-center">Unidades de Negocio</div>
+            <div className="text-2xl sm:text-3xl md:text-4xl font-black gradient-text mb-1 tracking-[-0.02em]"><span id="counter-projects">0</span>+</div>
+            <div className="text-[10px] sm:text-xs md:text-[18px] font-medium tracking-normal text-white leading-[1.2] text-center">Proyectos ejecutados</div>
           </div>
-          <div className="stat-item flex flex-col items-center flex-1 md:flex-none">
-            <div className="text-xl sm:text-3xl md:text-4xl font-black gradient-text mb-1 tracking-[-0.02em]">ISO+GHG</div>
-            <div className="text-[10px] sm:text-xs md:text-[18px] font-medium tracking-normal text-white leading-[1.2] text-center">Normas Internacionales</div>
+          <div className="stat-item flex flex-col items-center flex-1 md:flex-none -translate-y-1 md:-translate-y-0">
+            <div className="text-xl sm:text-3xl md:text-4xl font-black gradient-text mb-1 tracking-[-0.02em] whitespace-nowrap">+<span id="counter-emissions">0</span> MM tCO2e</div>
+            <div className="text-[10px] sm:text-xs md:text-[18px] font-medium tracking-normal text-white leading-[1.2] text-center">Emisiones Verificadas</div>
           </div>
         </div>
       </div>
