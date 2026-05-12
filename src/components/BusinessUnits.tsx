@@ -39,8 +39,8 @@ const businessUnits = [
   {
     id: "6",
     title: "Reportes de Sostenibilidad",
-    description: "Elaboración de reportes bajo estándares internacionales para cumplimiento regulatorio y posicionamiento ante inversores y stakeholders.",
-    tags: ["GRI", "IFRS S", "Carbon pricing"]
+    description: "Impulsamos dentro de las compañías el desarrollo e implementación de sistemas de gestión ágiles, útiles y con un foco claro en la eficiencia metodológica",
+    tags: ["Eficiencia creativa", "Sistema de gestión", "Agua"]
   }
 ];
 

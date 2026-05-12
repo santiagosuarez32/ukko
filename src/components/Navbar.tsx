@@ -17,6 +17,7 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      setMenuOpen(false);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -25,6 +26,7 @@ export default function Navbar() {
 
   const navLinks = [
     { label: "Inicio", href: "/" },
+    { label: "Empresa", href: "/sobre-nosotros" },
     { label: "Nosotros", href: "/#about-us" },
     { label: "Unidades", href: "/#unidades" },
     { label: "Metodología", href: "/#metodologia" },
@@ -85,7 +87,7 @@ export default function Navbar() {
 
           {/* Links container - Center (Nudged Right more) */}
           <div className="hidden md:flex flex-1 justify-center pl-32 gap-10 items-center text-lg font-medium text-white/90">
-            {navLinks.slice(0, 4).map((link) => (
+            {navLinks.slice(0, 5).map((link) => (
               <Link 
                 key={link.label}
                 href={link.href} 

@@ -80,7 +80,7 @@ export default function Clients() {
         <div className="absolute right-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
         <motion.div 
-          className="flex whitespace-nowrap gap-8 md:gap-12 py-8 items-center w-max"
+          className="flex whitespace-nowrap gap-4 md:gap-6 py-8 items-center w-max"
           animate={{
             x: ["0%", "-50%"],
           }}

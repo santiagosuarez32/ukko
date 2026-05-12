@@ -83,19 +83,7 @@ export default function SobreNosotros() {
                 Somos una compañía <span className="font-bold text-carbon">ágil con alta capacidad técnica y analítica</span>, enfocada en desarrollar soluciones inteligentes. Aplicamos nuestra experiencia para <span className="font-bold text-carbon">crear valor en cada proyecto</span>, materializando resultados confiables, innovadores y sustentables vinculados a la eficiencia energética y resiliencia climática.
               </p>
               
-              <a 
-                href="https://www.youtube.com/watch?v=WHwV_CUvfAw" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="bg-emerald text-white px-8 py-3.5 rounded-full font-bold text-sm hover:shadow-lg transition-all active:scale-[0.98] mb-12"
-              >
-                Ver casos de éxito
-              </a>
-              
-              <div className="mt-auto">
-                <span className="text-sm font-bold text-carbon underline decoration-emerald decoration-2 underline-offset-4">Paneles Solares Ukko</span>
-                <span className="text-sm text-carbon/40 ml-2">— Impulsá tu transición</span>
-              </div>
+
             </div>
 
             {/* Right Image (Wider and Shorter) */}

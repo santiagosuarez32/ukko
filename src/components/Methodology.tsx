@@ -30,7 +30,10 @@ import {
   PiGlobe,
   PiBuildings,
   PiTruck,
-  PiArchive
+  PiArchive,
+  PiWind,
+  PiDrop,
+  PiPlantLight
 } from "react-icons/pi";
 
 const methodologyData = [
@@ -177,6 +180,31 @@ const methodologyData = [
     ],
     alcances: [],
     planAccion: []
+  },
+  {
+    id: "06",
+    title: "Reportes de Sostenibilidad",
+    subtitle: "Soluciones integrales para potenciar la sostenibilidad y eficiencia operativa",
+    description: "Brindamos soluciones integrales para potenciar la sostenibilidad y la eficiencia operativa de su organización a través de los siguientes ejes:",
+    bgImage: "/06.webp",
+    capacidades: [
+      "Implementación de sistemas de gestión y marcos de reporte alineados a las exigencias globales.",
+      "Bajo estándares Internacionales:"
+    ],
+    objetivos: [
+      "Planes de Gestión Ambiental a Medida:",
+      "Analisis de gestión ambiental corporativa actual, identificando oportunidades de mejora y eficiencia en la operación diaria."
+    ],
+    subCardsLeft: [
+      "ISO 14001 - ISO 50001 - GRI - IFRS2"
+    ],
+    subCardsRight: [
+      { title: "Gestión del agua", icon: PiDrop, color: "text-blue-500" },
+      { title: "Gestión de residuos", icon: PiWind, color: "text-emerald-500" },
+      { title: "Gestión de riesgo", icon: PiShieldCheck, color: "text-amber-500" }
+    ],
+    alcances: [],
+    planAccion: []
   }
 ];
 
@@ -263,7 +291,7 @@ export default function Methodology() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="space-y-24 scroll-mt-32"
             >
-            {(unit.id === "04" || unit.id === "05") ? (
+            {(unit.id === "04" || unit.id === "05" || unit.id === "06") ? (
               <div className="space-y-20">
                 {/* Unit Header */}
                 <div className="flex flex-col md:flex-row md:items-end gap-6 border-b border-carbon/5 pb-8 relative">
@@ -279,16 +307,16 @@ export default function Methodology() {
                 </div>
 
                 {/* Unit 04 Layout (2-column capacities) */}
-                {unit.id === "04" && (
-                  <div className="max-w-5xl mx-auto bg-[#6EA593] p-8 md:p-10 rounded-[32px] shadow-xl text-white relative z-10">
+                {(unit.id === "04" || unit.id === "06") && (
+                  <div className={`${unit.id === "06" ? "max-w-6xl p-12 md:p-16" : "max-w-5xl p-8 md:p-10"} mx-auto ${unit.id === "06" ? "bg-[#1D2B33]" : "bg-[#6EA593]"} rounded-[32px] shadow-xl text-white relative z-10`}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                       <div>
-                        <h4 className="text-xl md:text-2xl font-bold mb-6">Capacidades</h4>
+                        {unit.id !== "06" && <h4 className="text-xl md:text-2xl font-bold mb-6">Capacidades</h4>}
                         <ul className="space-y-3">
                           {unit.capacidades?.map((item: string, i: number) => (
-                            <li key={i} className="flex items-start gap-3 text-white/90 font-medium">
-                              <span className="text-white text-lg mt-0.5">•</span>
-                              <span className="text-base md:text-lg tracking-tight leading-snug">
+                            <li key={i} className={`flex items-start gap-3 text-white/90 ${unit.id === "06" ? "font-normal" : "font-medium"}`}>
+                              {unit.id !== "06" && <span className="text-white text-lg mt-0.5">•</span>}
+                              <span className={`${unit.id === "06" ? "text-xl md:text-2xl" : "text-base md:text-lg"} tracking-tight leading-snug`}>
                                 {item.split(/(\*\*.*?\*\*)/).map((part, index) => 
                                   part.startsWith('**') && part.endsWith('**') 
                                     ? <strong key={index} className="font-extrabold text-white">{part.slice(2, -2)}</strong>
@@ -300,12 +328,12 @@ export default function Methodology() {
                         </ul>
                       </div>
                       <div>
-                        <h4 className="text-xl md:text-2xl font-bold mb-6">Objetivos</h4>
+                        {unit.id !== "06" && <h4 className="text-xl md:text-2xl font-bold mb-6">Objetivos</h4>}
                         <ul className="space-y-3">
                           {unit.objetivos?.map((item: string, i: number) => (
-                            <li key={i} className="flex items-start gap-3 text-white/90 font-medium">
-                              <span className="text-white text-lg mt-0.5">•</span>
-                              <span className="text-base md:text-lg tracking-tight leading-snug">
+                            <li key={i} className={`flex items-start gap-3 text-white/90 ${unit.id === "06" ? "font-normal" : "font-medium"}`}>
+                              {unit.id !== "06" && <span className="text-white text-lg mt-0.5">•</span>}
+                              <span className={`${unit.id === "06" ? "text-xl md:text-2xl" : "text-base md:text-lg"} tracking-tight leading-snug`}>
                                 {item.split(/(\*\*.*?\*\*)/).map((part, index) => 
                                   part.startsWith('**') && part.endsWith('**') 
                                     ? <strong key={index} className="font-extrabold text-white">{part.slice(2, -2)}</strong>
@@ -317,6 +345,42 @@ export default function Methodology() {
                         </ul>
                       </div>
                     </div>
+
+                    {/* Unit 06 Sub-cards Section */}
+                    {unit.id === "06" && (
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-12">
+                        {/* Left Sub-card */}
+                        <div className="flex justify-center md:justify-start">
+                          <motion.div 
+                            whileHover={{ y: -5 }}
+                            className="bg-white px-8 py-10 rounded-[32px] border-2 border-black/10 flex flex-col items-center justify-center text-center shadow-[0_15px_30px_-10px_rgba(0,0,0,0.3)] relative overflow-hidden group"
+                          >
+                            <div className="absolute top-0 left-0 w-full h-1.5 bg-ukko-blue" />
+                            <PiPlantLight className="text-4xl text-ukko-blue mb-4 opacity-80 group-hover:scale-110 transition-transform" />
+                            <span className="text-xl md:text-2xl font-bold text-black tracking-tight leading-tight">
+                              {unit.subCardsLeft?.[0]}
+                            </span>
+                          </motion.div>
+                        </div>
+
+                        {/* Right Sub-cards Grid */}
+                        <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+                          {unit.subCardsRight?.map((item: any, i: number) => (
+                            <motion.div 
+                              key={i} 
+                              whileHover={{ y: -5 }}
+                              className="bg-white px-6 py-6 rounded-[28px] border-2 border-black/10 flex flex-col items-center justify-center text-center shadow-[0_15px_30px_-10px_rgba(0,0,0,0.3)] flex-1 min-w-[160px] relative overflow-hidden group"
+                            >
+                              <div className={`absolute top-0 left-0 w-full h-1 ${item.color.replace('text', 'bg')}`} />
+                              <item.icon className={`text-3xl ${item.color} mb-3 opacity-80 group-hover:scale-110 transition-transform`} />
+                              <span className="text-base md:text-lg font-bold text-black tracking-tight leading-tight">
+                                {item.title}
+                              </span>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
                     {/* Subtle U Logo Accent */}
                     <div className="absolute bottom-6 right-8 w-12 h-12 opacity-80 pointer-events-none">
