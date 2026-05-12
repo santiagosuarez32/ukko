@@ -200,7 +200,7 @@ const methodologyData = [
     ],
     subCardsRight: [
       { title: "Gestión del agua", icon: PiDrop, color: "text-blue-500" },
-      { title: "Gestión de residuos", icon: PiWind, color: "text-emerald-500" },
+      { title: "Gestión de residuos", icon: PiPlantLight, color: "text-emerald-500" },
       { title: "Gestión de riesgo", icon: PiShieldCheck, color: "text-amber-500" }
     ],
     alcances: [],
@@ -353,10 +353,10 @@ export default function Methodology() {
                         <div className="flex justify-center md:justify-start">
                           <motion.div 
                             whileHover={{ y: -5 }}
-                            className="bg-white px-8 py-10 rounded-[32px] border-2 border-black/10 flex flex-col items-center justify-center text-center shadow-[0_15px_30px_-10px_rgba(0,0,0,0.3)] relative overflow-hidden group"
+                            className="bg-white px-6 py-8 rounded-[24px] border-2 border-black/10 flex flex-col items-center justify-center text-center shadow-[0_15px_30px_-10px_rgba(0,0,0,0.3)] relative overflow-hidden group"
                           >
                             <div className="absolute top-0 left-0 w-full h-1.5 bg-ukko-blue" />
-                            <PiPlantLight className="text-4xl text-ukko-blue mb-4 opacity-80 group-hover:scale-110 transition-transform" />
+                            <PiFileText className="text-4xl text-ukko-blue mb-4 opacity-80 group-hover:scale-110 transition-transform" />
                             <span className="text-xl md:text-2xl font-bold text-black tracking-tight leading-tight">
                               {unit.subCardsLeft?.[0]}
                             </span>
@@ -369,7 +369,7 @@ export default function Methodology() {
                             <motion.div 
                               key={i} 
                               whileHover={{ y: -5 }}
-                              className="bg-white px-6 py-6 rounded-[28px] border-2 border-black/10 flex flex-col items-center justify-center text-center shadow-[0_15px_30px_-10px_rgba(0,0,0,0.3)] flex-1 min-w-[160px] relative overflow-hidden group"
+                              className="bg-white px-4 py-5 rounded-[20px] border-2 border-black/10 flex flex-col items-center justify-center text-center shadow-[0_15px_30px_-10px_rgba(0,0,0,0.3)] flex-1 min-w-[140px] relative overflow-hidden group"
                             >
                               <div className={`absolute top-0 left-0 w-full h-1 ${item.color.replace('text', 'bg')}`} />
                               <item.icon className={`text-3xl ${item.color} mb-3 opacity-80 group-hover:scale-110 transition-transform`} />
