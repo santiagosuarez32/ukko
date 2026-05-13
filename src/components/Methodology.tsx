@@ -183,7 +183,7 @@ const methodologyData = [
   },
   {
     id: "06",
-    title: "Reportes de Sostenibilidad",
+    title: "Asesoría Estratégica",
     subtitle: "Soluciones integrales para potenciar la sostenibilidad y eficiencia operativa",
     description: "Brindamos soluciones integrales para potenciar la sostenibilidad y la eficiencia operativa de su organización a través de los siguientes ejes:",
     bgImage: "/06.webp",

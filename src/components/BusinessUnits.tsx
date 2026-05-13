@@ -38,9 +38,9 @@ const businessUnits = [
   },
   {
     id: "6",
-    title: "Reportes de Sostenibilidad",
+    title: "Asesoría Estratégica",
     description: "Impulsamos dentro de las compañías el desarrollo e implementación de sistemas de gestión ágiles, útiles y con un foco claro en la eficiencia metodológica",
-    tags: ["Eficiencia creativa", "Sistema de gestión", "Agua"]
+    tags: ["Eficiencia operativa", "Sistema de gestión", "Agua"]
   }
 ];
 
