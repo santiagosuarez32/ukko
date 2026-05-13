@@ -440,7 +440,6 @@ export default function Methodology() {
                           sizes="100vw"
                           containerClassName="w-full h-full"
                           className="object-cover"
-                          unoptimized
                         />
                   {/* Subtle Overlay */}
                   <div className="absolute inset-0 bg-black/5" />
@@ -682,7 +681,6 @@ export default function Methodology() {
                           sizes="100vw"
                           containerClassName="w-full h-full"
                           className="object-cover"
-                          unoptimized
                         />
                         {/* Subtle Overlay */}
                         <div className="absolute inset-0 bg-black/5" />
@@ -753,7 +751,6 @@ export default function Methodology() {
                           sizes="100vw"
                           containerClassName="w-full h-full"
                           className="object-cover"
-                          unoptimized
                         />
                         {/* Subtle Overlay */}
                         <div className="absolute inset-0 bg-black/5" />
@@ -838,7 +835,6 @@ export default function Methodology() {
                         fill
                         containerClassName="w-full h-full"
                         className="object-cover"
-                        unoptimized
                       />
                       {/* Subtle Overlay */}
                       <div className="absolute inset-0 bg-black/5" />

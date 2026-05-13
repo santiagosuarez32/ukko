@@ -73,7 +73,6 @@ export default function CTA({ className }: { className?: string }) {
               alt="Ukko Energy Future"
               fill
               className="object-cover"
-              unoptimized
             />
             {/* Darker overlay for depth */}
             <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />

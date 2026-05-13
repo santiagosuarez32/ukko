@@ -22,7 +22,6 @@ export default function Hero({ title }: HeroProps) {
           src="/hero-3.webp"
           alt="Fondo de Energía Renovable"
           fill
-          unoptimized
           containerClassName="w-full h-full"
           className="object-cover object-[center_40%] opacity-90"
           priority

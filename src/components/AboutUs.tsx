@@ -59,7 +59,6 @@ export default function AboutUs() {
           sizes="(max-width: 1024px) 100vw, 33vw"
           containerClassName="w-full h-full"
           className="object-contain object-right-top"
-          unoptimized
           delay={0.2}
         />
       </div>
@@ -203,7 +202,6 @@ export default function AboutUs() {
                 fill
                 sizes="(max-width: 1024px) 100vw, 100vw"
                 className="object-cover transition-transform duration-1000"
-                unoptimized
               />
               {/* Subtle gradient overlay to enhance depth */}
               <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" />

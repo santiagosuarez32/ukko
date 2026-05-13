@@ -139,7 +139,6 @@ export default function SobreNosotros() {
                     fill
                     sizes="(max-width: 1024px) 100vw, 66vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    unoptimized
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300" />
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -173,7 +172,6 @@ export default function SobreNosotros() {
                         fill
                         sizes="(max-width: 768px) 100vw, 20vw"
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        unoptimized
                       />
                       <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-300" />
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
