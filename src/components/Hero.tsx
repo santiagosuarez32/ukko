@@ -54,7 +54,7 @@ export default function Hero({ title }: HeroProps) {
 
         {/* Description Text */}
         <p className="hero-text text-base md:text-[18px] text-white/90 mb-8 md:mb-10 max-w-2xl mx-auto font-normal leading-[1.6] tracking-[-0.02em] drop-shadow-md">
-          Suministramos soluciones de energía sostenible de clase mundial para impulsar un mañana más limpio, brillante y eficiente para la industria global.
+          Soluciones inteligentes para el desarrollo de negocios sostenibles
         </p>
 
         {/* 2 CTAs */}
