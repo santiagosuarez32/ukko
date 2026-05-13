@@ -56,6 +56,7 @@ export default function AboutUs() {
           src="/about.webp"
           alt="Ukko About Background"
           fill
+          sizes="(max-width: 1024px) 100vw, 33vw"
           containerClassName="w-full h-full"
           className="object-contain object-right-top"
           unoptimized
@@ -200,6 +201,7 @@ export default function AboutUs() {
                 src="/about-paneles.webp"
                 alt="Paneles Solares Ukko"
                 fill
+                sizes="(max-width: 1024px) 100vw, 100vw"
                 className="object-cover transition-transform duration-1000"
                 unoptimized
               />

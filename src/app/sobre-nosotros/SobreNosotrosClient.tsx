@@ -9,7 +9,7 @@ import { LiquidReveal } from "@/components/ui/LiquidReveal";
 import { AnimatedText } from "@/components/ui/AnimatedText";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { FiTarget, FiEye, FiAward, FiTrendingUp, FiYoutube, FiLinkedin, FiInstagram, FiPlay } from "react-icons/fi";
+import { FiTarget, FiEye, FiAward, FiTrendingUp, FiYoutube, FiLinkedin, FiPlay } from "react-icons/fi";
 
 export default function SobreNosotros() {
   const [triggerUnderline, setTriggerUnderline] = useState(false);
@@ -92,6 +92,7 @@ export default function SobreNosotros() {
                 src="/sobre-mi.webp"
                 alt="Ukko Energy Team"
                 fill
+                sizes="(max-width: 1024px) 100vw, 60vw"
                 containerClassName="w-full h-full rounded-[40px] overflow-hidden shadow-xl"
                 className="object-cover"
                 priority
@@ -136,6 +137,7 @@ export default function SobreNosotros() {
                     src="https://i.ytimg.com/vi/rqbIq9DJaj8/hqdefault.jpg"
                     alt="SUMMIT Sostenibilidad y Negocios"
                     fill
+                    sizes="(max-width: 1024px) 100vw, 66vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                     unoptimized
                   />
@@ -169,6 +171,7 @@ export default function SobreNosotros() {
                         src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
                         alt={video.title}
                         fill
+                        sizes="(max-width: 768px) 100vw, 20vw"
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                         unoptimized
                       />

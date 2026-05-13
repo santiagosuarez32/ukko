@@ -12,6 +12,7 @@ export default function Footer() {
                 src="/logo.webp"
                 alt="Logo de Ukko Energy"
                 fill
+                sizes="(max-width: 768px) 224px, 224px"
                 className="object-contain object-left"
               />
             </div>
@@ -37,24 +38,27 @@ export default function Footer() {
             </div>
             <div className="flex flex-col gap-4">
                <div className="font-bold text-emerald mb-2 text-sm">Redes Sociales</div>
-               <a href="#" className="text-white/60 hover:text-white transition-colors font-medium flex items-center gap-2">
+               <a 
+                 href="https://www.linkedin.com/company/ukko-energy-solutions" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 className="text-white/60 hover:text-white transition-colors font-medium flex items-center gap-2"
+               >
                  LinkedIn
                </a>
-               <a href="#" className="text-white/60 hover:text-white transition-colors font-medium flex items-center gap-2">
+               <a 
+                 href="https://www.youtube.com/@ukkoenergy" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 className="text-white/60 hover:text-white transition-colors font-medium flex items-center gap-2"
+               >
                  YouTube
-               </a>
-               <a href="#" className="text-white/60 hover:text-white transition-colors font-medium flex items-center gap-2">
-                 Instagram
                </a>
             </div>
           </div>
         </div>
         <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-white/40 text-xs font-medium">© 2026 Ukko Energy Solutions. Todos los derechos reservados.</div>
-          <div className="flex gap-8 text-xs font-medium text-white/40">
-             <a href="#" className="hover:text-white transition-colors">Política de Privacidad</a>
-             <a href="#" className="hover:text-white transition-colors">Términos de Servicio</a>
-          </div>
         </div>
       </div>
     </footer>

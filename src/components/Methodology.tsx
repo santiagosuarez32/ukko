@@ -388,6 +388,7 @@ export default function Methodology() {
                         src="/logo-u.webp" 
                         alt="Ukko U" 
                         fill 
+                        sizes="48px"
                         className="object-contain brightness-0 invert"
                       />
                     </div>
@@ -436,6 +437,7 @@ export default function Methodology() {
                           src={unit.bgImage || ""} 
                           alt={unit.title}
                           fill
+                          sizes="100vw"
                           containerClassName="w-full h-full"
                           className="object-cover"
                           unoptimized
@@ -677,6 +679,7 @@ export default function Methodology() {
                           src={unit.bgImage || ""} 
                           alt={unit.title}
                           fill
+                          sizes="100vw"
                           containerClassName="w-full h-full"
                           className="object-cover"
                           unoptimized
@@ -723,6 +726,7 @@ export default function Methodology() {
                                 src="/logo-u.webp" 
                                 alt="Logo U" 
                                 fill 
+                                sizes="48px"
                                 className="object-contain brightness-0 invert opacity-90"
                               />
                             </div>
@@ -746,6 +750,7 @@ export default function Methodology() {
                           src={unit.bgImage || ""} 
                           alt={unit.title}
                           fill
+                          sizes="100vw"
                           containerClassName="w-full h-full"
                           className="object-cover"
                           unoptimized

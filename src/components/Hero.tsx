@@ -27,6 +27,7 @@ export default function Hero({ title }: HeroProps) {
           className="object-cover object-[center_40%] opacity-90"
           priority
           delay={0.1}
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-black/45"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60"></div>

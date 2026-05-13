@@ -80,6 +80,7 @@ export default function Navbar() {
               src="/logo-nav.webp"
               alt="Logo de Ukko Energy"
               fill
+              sizes="(max-width: 768px) 160px, 160px"
               className="object-contain object-left"
               priority
             />
