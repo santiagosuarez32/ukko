@@ -52,7 +52,7 @@ export default function Hero({ title }: HeroProps) {
         </h1>
 
         {/* Description Text */}
-        <p className="hero-text text-base md:text-[18px] text-white/90 mb-8 md:mb-10 max-w-2xl mx-auto font-normal leading-[1.6] tracking-[-0.02em] drop-shadow-md">
+        <p className="hero-text text-xl md:text-[26px] text-white/90 mb-8 md:mb-10 max-w-4xl mx-auto font-normal leading-[1.6] tracking-[-0.02em] drop-shadow-md md:whitespace-nowrap">
           Soluciones inteligentes para el desarrollo de negocios sostenibles
         </p>
 
